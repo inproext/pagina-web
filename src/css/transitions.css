@@ -1,0 +1,10 @@
+.container-transition {
+    transition: 0.6s all;
+    opacity: 0;
+}
+
+body[data-page="0"] .container-transition { background-color: #FFA4FF; }
+body[data-page="1"] .container-transition { background-color: #95D4CC; }
+body[data-page="2"] .container-transition { background-color: #95D4CC; }
+body[data-page="3"] .container-transition { background-color: #95D4CC; }
+body[data-page="4"] .container-transition { background-color: #95D4CC; }
