@@ -25,7 +25,9 @@ let cameraPoints = [
     { id: 2, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
     { id: 3, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
     { id: 4, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#000', speed: 1000 },
-    { id: 5, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 }
+    { id: 5, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 },
+    { id: 6, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 }, 
+    { id: 7, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
 ];
 
 preload.addContents([
@@ -34,7 +36,8 @@ preload.addContents([
     { id: '3', src: 'dist/html/3.html' },
     { id: '4', src: 'dist/html/4.html' },
     { id: '5', src: 'dist/html/5.html' },
-    { id: '6', src: 'dist/html/6.html' }
+    { id: '6', src: 'dist/html/6.html' },
+    { id: '7', src: 'dist/html/7.html' }
 ]);
 
 preload.addImages([
@@ -43,8 +46,12 @@ preload.addImages([
     { id: 'home_1b', src: 'dist/img/home_1b.png' },
     { id: 'home_2a', src: 'dist/img/home_2a.png' },
     { id: 'home_3a', src: 'dist/img/home_3a.png' },
+    { id: 'home_3b', src: 'dist/img/home_3b.png' },
     { id: 'home_4a', src: 'dist/img/home_4a.png' },
     { id: 'home_4b', src: 'dist/img/home_4b.png' },
+    { id: 'home_6a', src: 'dist/img/home_6a.png' },
+    { id: 'home_6b', src: 'dist/img/home_6b.png' },
+    { id: 'home_7a', src: 'dist/img/home_7a.png' }
 ]);
 
 preload.addModels([
@@ -95,7 +102,7 @@ function fn_load(){
 function setEvents() {
     let prevTime = new Date().getTime();
     let mc = new Hammer(bd);
-    /*
+    
     mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });   
     mc.on('panleft panright panup pandown tap press', function(ev) {
         let curTime = new Date().getTime();
@@ -133,7 +140,7 @@ function setEvents() {
             fn_load();
         }
     });
-    */
+    
 
     btnMenuMovile.addEventListener('click', function() {
         menuList.classList.add('active');
