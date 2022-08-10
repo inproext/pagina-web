@@ -201,7 +201,10 @@ function setEvents() {
                     gscale = 0;
                 }
 
-                glass.style.transform = 'translate('+gx+'px,'+gy+'px) scale('+gscale+')';
+                //glass.pxstyle.transform = 'translate('+gx+'px,'+gy+'px) scale('+gscale+')';
+                glass.style.transform = 'scale('+gscale+')';
+                glass.style.left = gx + 'px';
+                glass.style.top = gy + 'px';
                 glass.style.backgroundImage = 'url('+srcHiddenImage+')';
                 glass.style.backgroundRepeat = 'no-repeat';
                 glass.style.backgroundSize = (rects.width) + "px " + (rects.height) + "px";

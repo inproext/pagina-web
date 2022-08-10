@@ -308,7 +308,8 @@ h4{
     top: 0;
     left: 0;
     box-sizing: content-box;
-    transition: 0.2s opacity;
+    transition: 0.6s transform, 0.2s opacity;
+    transform: scale(0);
     cursor: none;
     background-color: #CFC0FF;
 }
