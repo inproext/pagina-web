@@ -282,8 +282,8 @@ h4{
 .image-home4a{
     position: absolute;
     width: auto;
-    height: 100%;
-    border: 1px solid #fff;
+    height: 96%;
+    bottom: 0;
 }
 
 .txt4a{
@@ -303,13 +303,27 @@ h4{
 
 .glass {
     position: fixed;
-    width: 240px;
-    height: 160px;
+    width: 264px;
+    height: 174px;
     top: 0;
     left: 0;
-    border: 2px solid #fff;
     box-sizing: content-box;
-    transition: 0.2s all;
+    transition: 0.2s opacity;
+    cursor: none;
+    background-color: #CFC0FF;
+}
+
+.glass::after{
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -9%;
+    width: 320px;
+    height: 209px;
+    background-image: url(../img/bg-glass.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /*************************************************/

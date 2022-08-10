@@ -49,6 +49,9 @@ preload.addImages([
     { id: 'home_3b', src: 'dist/img/home_3b.png' },
     { id: 'home_4a', src: 'dist/img/home_4a.png' },
     { id: 'home_4b', src: 'dist/img/home_4b.png' },
+    { id: 'home_5a', src: 'dist/img/home_5a.png' },
+    { id: 'home_5b', src: 'dist/img/home_5b.png' },
+    { id: 'home_5c', src: 'dist/img/home_5c.png' },
     { id: 'home_6a', src: 'dist/img/home_6a.png' },
     { id: 'home_6b', src: 'dist/img/home_6b.png' },
     { id: 'home_7a', src: 'dist/img/home_7a.png' }
@@ -173,21 +176,36 @@ function setEvents() {
             let glass = document.querySelector('.glass');
             if(imageReveal !== null){
                 _ev.preventDefault();
-                let x, y, w, h;
+                let gx, gy, gw, gh, gscale;
+                let bx, by;
                 let hiddenImage = imageReveal.getAttribute('data-hiddenImage');
                 let srcHiddenImage = Library.images[hiddenImage].src;
                 let rects = imageReveal.getBoundingClientRect();
-                w = glass.offsetWidth / 2;
-                h = glass.offsetHeight / 2;
-                x = _ev.clientX - w;
-                y = _ev.clientY - h;
-                x = x - window.pageXOffset;
-                y = y - window.pageYOffset;
-                glass.style.transform = 'translate('+x+'px,'+y+'px)';
+                gw = glass.offsetWidth / 2;
+                gh = glass.offsetHeight / 2;
+                gx = _ev.clientX - gw;
+                gy = _ev.clientY - gh;
+                gx = gx - window.pageXOffset;
+                gy = gy - window.pageYOffset;
+                bx = gx - rects.x;
+                by = gy - rects.y;
+                if(gx > rects.x && gx < (rects.width + rects.x - glass.offsetWidth) && gy > rects.y && gy < (rects.height + rects.y - glass.offsetHeight))
+                {
+                    glass.style.opacity = 1;
+                    
+                    gscale = 1;
+                   
+                }
+                else {
+                    glass.style.opacity = 0;
+                    gscale = 0;
+                }
+
+                glass.style.transform = 'translate('+gx+'px,'+gy+'px) scale('+gscale+')';
                 glass.style.backgroundImage = 'url('+srcHiddenImage+')';
                 glass.style.backgroundRepeat = 'no-repeat';
                 glass.style.backgroundSize = (rects.width) + "px " + (rects.height) + "px";
-                glass.style.backgroundPosition = "-" + (x) + "px -" + (y) + "px";
+                glass.style.backgroundPosition = "-" + (bx) + "px -" + (by) + "px";
             }   
         }
         catch(err) {
