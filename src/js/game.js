@@ -119,7 +119,7 @@ class Game3d {
         
         this.satelite2.position.x = child.position.x;
         this.satelite2.position.y = child.position.y;
-        if(_point.id === 0) {
+        if(_point.id === 1) {
             this.playAnimation();
             this.satelite2.position.z = child.position.z > 0 ? child.position.z + 0.2 : child.position.z - 0.2;
         }

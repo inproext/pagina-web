@@ -154,7 +154,7 @@ h4{
 .container-menu ul.menu-list li a{
     color: #fff;
     font-family: 'Alegreya Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     text-decoration: none;
 }
@@ -163,6 +163,25 @@ h4{
     font-weight: bold;
     opacity: 0.9;
     color: #ff00a5;
+}
+
+.scroll-bar{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: #0000006b;
+}
+
+.scroll-bar .bar{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    transition: 0.6s all;
+    background-color: #fff;
 }
 
 /*home_page1*/
@@ -329,18 +348,23 @@ h4{
 
 /*************************************************/
 
-.image-home5a{
+.image-home5{
     position: absolute;
-    width: auto;
-    height: 90vh;
-    bottom: -40px;
-    margin-left: 140px;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    transition: 0.6s all;
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 0;
 }
 
 .txt5a{
     position: absolute;
-    top: 10%;
+    top: 5%;
     text-align: right;
+    z-index: 1;
 }
 
 .txt5b{
@@ -349,7 +373,67 @@ h4{
     left: 29%;
 }
 
+.btn-home5 {
+    position: relative;
+    color: #F22A82;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-home5a{ left: 10%;}
+.btn-home5c{ right: 10%;}
+
+.btn-home5:hover + .image-home5 { opacity: 1; } 
+
+.btn-home5 .circle {
+    width: 120px;
+    height: 120px;
+    color: #95D4CC;
+    background-color: #FFF;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s all;
+}
+
+.btn-home5 .txt {
+    position: absolute;
+    top: 150px;
+    opacity: 0;
+    transition: 0.6s all;
+}
+
+.btn-home5:hover .circle{ background-color: #F22A82; color: #fff; }
+.btn-home5:hover .txt{ opacity: 1; }
 /*************************************************/
+
+.carrousel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide.active{
+    display: block;
+}
 
 .image-home6a{
     position: absolute;
@@ -472,6 +556,10 @@ h4{
     .container-menu ul.menu-list li { margin: 0.5rem; }
     .container-menu ul.menu-list li a {
         font-size: 1.4rem;
+    }
+
+    .container-main{
+        padding: 75px 0px 40px 0px;
     }
 }
 

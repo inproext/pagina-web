@@ -8,6 +8,7 @@ const preload = new LoaderFiles();
 
 let bd = document.body;
 let layerMain = document.getElementById('LayerMain');
+let scrollBar = document.querySelector('.scroll-bar .bar');
 let layerContent = document.getElementById('LayerContent');
 let layerPreload = document.getElementById('LayerPreload');
 let btnMenuMovile = document.querySelector('.btn-menu-movile');
@@ -15,19 +16,20 @@ let menuList = document.querySelector('.menu-list');
 let menuItem = document.querySelectorAll('.menu-item');
 
 let points = { mouseX: 0, mouseY: 0 };
-let currentPosition = 0;
+let currentPosition = 0,
+    lastPosition = -1;
+let scrollDirection = '';
 
 
 let cameraPoints = [
     //x,y,z corresponde a la posicion de la cubo //cx, cy, cz corresponde a la posición del camara
-    { id: 0, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#000', speed: 2000 },
-    { id: 1, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },  
-    { id: 2, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
-    { id: 3, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
-    { id: 4, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#000', speed: 1000 },
-    { id: 5, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 },
-    { id: 6, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 }, 
-    { id: 7, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
+    { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#000', speed: 2000 },
+    { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },  
+    { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
+    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
+    { id: 5, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#000', speed: 1000 },
+    { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 },
+    { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 }
 ];
 
 preload.addContents([
@@ -37,7 +39,7 @@ preload.addContents([
     { id: '4', src: 'dist/html/4.html' },
     { id: '5', src: 'dist/html/5.html' },
     { id: '6', src: 'dist/html/6.html' },
-    { id: '7', src: 'dist/html/7.html' }
+    { id: '7', src: 'dist/html/7.html' },
 ]);
 
 preload.addImages([
@@ -93,13 +95,23 @@ function init() {
 }
 
 function fn_load(){
-    layerContent.innerHTML = '';
-    //layerMain.style.display = 'none';
-    game3d.moveCamera(cameraPoints[currentPosition]);
-    layerContent.innerHTML = Library.contents[currentPosition+1];
-    document.body.setAttribute('data-page', currentPosition);
-    utils.loadImages();
-    utils.parseScript(Library.contents[currentPosition+1]);
+    let scrollProgress = ((currentPosition + 1) / cameraPoints.length * 100);
+    scrollDirection = currentPosition > lastPosition ? "down": "up";
+    if(currentPosition !== lastPosition) {
+        layerContent.innerHTML = '';
+        //layerMain.style.display = 'none';
+        game3d.moveCamera(cameraPoints[currentPosition]);
+        layerContent.innerHTML = Library.contents[currentPosition+1];
+        checkScrollDirection();
+        document.body.setAttribute('data-page', currentPosition);
+        scrollBar.style.width = scrollProgress + '%';
+        utils.loadImages();
+        utils.parseScript(Library.contents[currentPosition+1]);
+        lastPosition = currentPosition;
+    }
+    else {
+        scrollDirection = "keep";
+    }
 }
 
 function setEvents() {
@@ -126,24 +138,32 @@ function setEvents() {
         }
     });
     
-    Hamster(bd).wheel(function(event, delta, deltaX, deltaY){
+    Hamster(bd).wheel(function(event, delta, deltaX, deltaY) {
+        let slideDirection = '';
         let curTime = new Date().getTime();
         let timeDiff = curTime-prevTime;
         prevTime = curTime;
-
-       
-         if(timeDiff > 200) {
+        if(timeDiff > 200) {
+            let scrollContainer = document.querySelector('.scroll');
             if(delta == -1){
+                slideDirection = 'down';
                 currentPosition += 1;
             }
             else {
+                slideDirection = 'up';
                 currentPosition -= 1;
             }
-            checkArrows();
-            fn_load();
+
+            if(scrollContainer == null) {
+                checkArrows();
+                fn_load();                 
+            }
+            
+            checkCarrousel(slideDirection);
         }
+
     });
-    
+
 
     btnMenuMovile.addEventListener('click', function() {
         menuList.classList.add('active');
@@ -228,6 +248,88 @@ function checkArrows() {
     
     deactiveBullets();
     menuItem[currentPosition].classList.add('active');
+}
+
+function checkScrollDirection() {
+    let scroll = document.querySelector('.scroll');
+    let slides = document.querySelectorAll('.slide');
+    let cantSlides = slides.length - 1;
+    if(scroll !== null) {
+        if(scrollDirection == "down") {
+            slides[0].classList.add('active');
+            scroll.setAttribute('data-pos', 0);
+        }
+        if(scrollDirection == "up") {
+            slides[cantSlides].classList.add('active');
+            scroll.setAttribute('data-pos', cantSlides);
+        }
+    }
+}
+
+function checkCarrousel(_slideDirection) {
+    let carrousel = document.querySelector('.carrousel');
+    let slides = document.querySelectorAll('.slide');
+    if(carrousel !== null) {
+        let init = parseInt(carrousel.getAttribute('data-init'));
+        let pos = parseInt(carrousel.getAttribute('data-pos'));
+        let cantSlides = slides.length - 1;
+
+        if(init) {
+            carrousel.setAttribute('data-init', 0);
+        }
+        else {
+            if(pos == 0) {
+                if( _slideDirection == "up")
+                {
+                    console.log('Cambiar Anterior Pagina');
+                    checkArrows();
+                    fn_load();
+                }
+                else {
+                    currentPosition -= 1;
+                    console.log("Cambiar Siguiente Slide");
+                    carrousel.setAttribute('data-pos', (pos + 1));
+                    slides.forEach(_slide => { _slide.classList.remove('active'); })
+                    slides[pos + 1].classList.add('active');
+                }
+            }
+            else if(pos == cantSlides) {
+                if( _slideDirection == "down")
+                {
+                    console.log("CambiarSiguientePagina");
+                    checkArrows();
+                    fn_load();
+                }
+                else {
+                    currentPosition += 1;
+                    console.log("Cambiar Anterior Slide");
+                    carrousel.setAttribute('data-pos', (pos - 1));
+                    slides.forEach(_slide => { _slide.classList.remove('active'); })
+                    slides[pos - 1].classList.add('active');
+                }
+            }
+            else {
+                if( _slideDirection == "down")
+                {
+                    currentPosition -= 1;
+                    console.log("Cambiar Anterior Slide");
+                    carrousel.setAttribute('data-pos', (pos + 1));
+                    slides.forEach(_slide => { _slide.classList.remove('active'); })
+                    slides[pos + 1].classList.add('active');
+                }
+
+                if( _slideDirection == "up")
+                {
+                    currentPosition += 1;
+                    console.log("Cambiar Anterior Slide");
+                    carrousel.setAttribute('data-pos', (pos - 1));
+                    slides.forEach(_slide => { _slide.classList.remove('active'); })
+                    slides[pos - 1].classList.add('active');
+                }
+
+            }
+        }
+    }
 }
 
 function deactiveBullets () {
