@@ -28,7 +28,7 @@ class Game3d {
 
 
         this.camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.01, 100)
-        this.camera.position.set( 0, 0, -0.0367 );
+        this.camera.position.set( 0, 0, -0.0367);
         this.camera.lookAt(new THREE.Vector3(0,0,0));
 
         /**CREATE OBJECTS */
@@ -52,7 +52,7 @@ class Game3d {
 
 
         let particlesGeometry = new THREE.BufferGeometry();
-        let count = 100000;
+        let count = 0;
         let positions = new Float32Array(count * 3);
         let colors = new Float32Array(count * 3);
 
@@ -189,7 +189,6 @@ class Game3d {
 
 
     resize() {
-        console.log("reescalar");
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);

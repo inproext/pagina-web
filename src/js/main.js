@@ -1,7 +1,7 @@
 import { LoaderFiles } from './loaderfiles.js';
 import { Game3d } from "./game.js";
+import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
-import { RectAreaLight } from './libs/three/three.module.js';
 
 const game3d = new Game3d(); 
 const preload = new LoaderFiles();
@@ -18,18 +18,21 @@ let menuItem = document.querySelectorAll('.menu-item');
 let points = { mouseX: 0, mouseY: 0 };
 let currentPosition = 0,
     lastPosition = -1;
+
+let slideDirection = '';
 let scrollDirection = '';
 
 
 let cameraPoints = [
     //x,y,z corresponde a la posicion de la cubo //cx, cy, cz corresponde a la posición del camara
-    { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#000', speed: 2000 },
-    { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },  
-    { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
-    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
-    { id: 5, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#000', speed: 1000 },
-    { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 },
-    { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 }
+    { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
+    { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
+    { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#95D4CC',  speed: 1000 },
+    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 5, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
+    { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
 ];
 
 preload.addContents([
@@ -40,10 +43,13 @@ preload.addContents([
     { id: '5', src: 'dist/html/5.html' },
     { id: '6', src: 'dist/html/6.html' },
     { id: '7', src: 'dist/html/7.html' },
+    { id: '8', src: 'dist/html/8.html' },
 ]);
 
 preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
+    { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
+    { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
     { id: 'home_1a', src: 'dist/img/home_1a.png' },
     { id: 'home_1b', src: 'dist/img/home_1b.png' },
     { id: 'home_2a', src: 'dist/img/home_2a.png' },
@@ -56,7 +62,9 @@ preload.addImages([
     { id: 'home_5c', src: 'dist/img/home_5c.png' },
     { id: 'home_6a', src: 'dist/img/home_6a.png' },
     { id: 'home_6b', src: 'dist/img/home_6b.png' },
-    { id: 'home_7a', src: 'dist/img/home_7a.png' }
+    { id: 'wave1', src: 'dist/img/wave1.png' },
+    { id: 'wave2', src: 'dist/img/wave2.png' },
+    { id: 'wave3', src: 'dist/img/wave3.png' },
 ]);
 
 preload.addModels([
@@ -103,6 +111,8 @@ function fn_load(){
         game3d.moveCamera(cameraPoints[currentPosition]);
         layerContent.innerHTML = Library.contents[currentPosition+1];
         checkScrollDirection();
+        checkLiquidButton();
+        checkParallax();
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
         utils.loadImages();
@@ -124,22 +134,29 @@ function setEvents() {
         let timeDiff = curTime-prevTime;
         prevTime = curTime;
         if(timeDiff > 200) {
+            let scrollContainer = document.querySelector('.scroll');
+
             if(ev.type == "panup"){
+                slideDirection = 'down';
                 currentPosition += 1;
-                checkArrows();
-                fn_load();
             }
 
             if(ev.type == "pandown"){
+                slideDirection = 'up';
                 currentPosition -= 1;
-                checkArrows();
-                fn_load();
             }
+
+            if(scrollContainer == null) {
+                checkArrows();
+                fn_load();                 
+            }
+            
+            checkCarrousel(slideDirection);
         }
     });
     
     Hamster(bd).wheel(function(event, delta, deltaX, deltaY) {
-        let slideDirection = '';
+        
         let curTime = new Date().getTime();
         let timeDiff = curTime-prevTime;
         prevTime = curTime;
@@ -246,8 +263,8 @@ function checkArrows() {
         currentPosition = cameraPoints.length - 1;
     }
     
-    deactiveBullets();
-    menuItem[currentPosition].classList.add('active');
+    //deactiveBullets();
+    //menuItem[currentPosition].classList.add('active');
 }
 
 function checkScrollDirection() {
@@ -267,7 +284,7 @@ function checkScrollDirection() {
 }
 
 function checkCarrousel(_slideDirection) {
-    let carrousel = document.querySelector('.carrousel');
+    let carrousel = document.querySelector('.carrousel.scroll');
     let slides = document.querySelectorAll('.slide');
     if(carrousel !== null) {
         let init = parseInt(carrousel.getAttribute('data-init'));
@@ -329,6 +346,21 @@ function checkCarrousel(_slideDirection) {
 
             }
         }
+    }
+}
+
+function checkLiquidButton() {
+    let buttons = document.getElementsByClassName("liquid-button");
+    for (let buttonIndex = 0; buttonIndex < buttons.length; buttonIndex++) {
+        let button = buttons[buttonIndex];
+        button.liquidButton = new LiquidButton(button);
+    }
+}
+
+function checkParallax() {
+    let parallaxScene = document.querySelector('.parallax-scene');
+    if(parallaxScene !== null) {
+        new Parallax(parallaxScene);
     }
 }
 

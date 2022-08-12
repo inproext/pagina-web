@@ -1,30 +1,58 @@
 <div class="home-page">
-    <div class="carrousel scroll" data-init="1">
-        <div class="slide">
-            <img data-image="home_6a" class="load-image image-home6a animate__animated animate__fadeInUp ">
-            <h2 class="txt6a txt-shadow animate__animated animate__fadeIn">¿Qué dicen</h2>
-            <h4 class="txt6b txt-shadow animate__animated animate__fadeIn">de nosotros?</h4>
-            <h4 class="txt6c txt-shadow animate__animated animate__fadeIn">Conoce los resultados de algunos de nuestros proyectos en palabras de nuestros clientes</h4>
-            <button class="btn-circle" style="top: 53%; left: 45%;">Ver casos</button>
+    <div class="carrousel">
+        <div id="Slide6a" class="slide active">
+            <img data-image="home_6a" class="load-image image-home6a animate__animated animate__fadeInUp">
+        
+            <h2 class="txt6a txt-shadow animate__animated animate__fadeInDown">¿Qué dicen</h2>
+            <h4 class="txt6b txt-shadow animate__animated animate__fadeInDown">de nosotros?</h4>
+            
+            <h4 class="txt6c animate__animated animate__fadeInRight">Conoce los resultados de algunos de nuestros proyectos en palabras de nuestros clientes</h4>
+            
+            <div class="btn-ver-casos animate__animated animate__fadeIn" onclick="showAndHide('#Slide6b','#Slide6a');">
+                <svg class="liquid-button"
+                    data-text="Ver casos"
+                    data-font-family="Fraunces"
+                    data-font-weight="900"
+                    data-force-factor="0.1"
+                    data-width="200"
+                    data-height="90"
+                    data-layer-1-viscosity="0.5"
+                    data-layer-2-viscosity="0.4"
+                    data-layer-1-mouse-force="400"
+                    data-layer-2-mouse-force="500"
+                    data-layer-1-force-limit="1"
+                    data-layer-2-force-limit="2"
+                    data-color1="#95D4CC"
+                    data-color2="#FFFFFF"
+                    data-color3="#FFFFFF"
+                    data-txt-color="#95D4CC">
+                </svg>
+            </div> 
         </div>
-        <div class="slide">
-            <h1>Prueba 1</h1>
-        </div>
-        <div class="slide">
-            <h1>Prueba 2</h1>
-        </div>
-        <div class="slide">
-            <h1>Prueba 3</h1>
-        </div>
-        <div class="slide">
+        <div id="Slide6b" class="slide">
             <p class="txt6d txt-shadow animate__animated animate__fadeIn"><strong>Fernando Aldana</strong><br> Director Ejecutivo de ABC</p>
             <img data-image="home_6b" class="load-image image-home6b animate__animated animate__fadeInUp ">
             <h2 class="txt6a txt-shadow animate__animated animate__fadeIn">¿Qué dicen</h2>
             <h4 class="txt6b txt-shadow animate__animated animate__fadeIn">de nosotros?</h4>
-            <p class="opinion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.</p>
+            <p class="opinion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur labore debitis accusamus minima architecto voluptatibus doloremque itaque temporibus provident? Provident quisquam accusantium repellat ratione beatae assumenda, id at. Ducimus, beatae.
+            </p>
+            <div class="arrows">
+                <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide6a','#Slide6b');">
+                <img data-image="arrow-right" class="load-image btn-arrow" onclick="showAndHide('#Slide6c','#Slide6b');">
+            </div>
+        </div>
+        <div id="Slide6c" class="slide">
+            <p class="txt6d txt-shadow animate__animated animate__fadeIn"><strong>Mario Arjona</strong><br> Coordinador de tic</p>
+            <img data-image="home_6b" class="load-image image-home6b animate__animated animate__fadeInUp ">
+            <h2 class="txt6a txt-shadow animate__animated animate__fadeIn">¿Qué dicen</h2>
+            <h4 class="txt6b txt-shadow animate__animated animate__fadeIn">de nosotros?</h4>
+            <p class="opinion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur labore debitis accusamus minima architecto voluptatibus doloremque itaque temporibus provident? Provident quisquam accusantium repellat ratione beatae assumenda, id at. Ducimus, beatae.
+            </p>
+            <div class="arrows">
+                <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide6b','#Slide6c');">
+            </div>
         </div>
     </div>
-
-    
 </div>
-
