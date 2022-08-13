@@ -1,1 +1,266 @@
 @import 'mediaqueries';
+
+// Page 1
+
+.image-home1a{
+    position: absolute;
+    width: 720px;
+    height: auto;
+    left: 5%;
+    top: 10%; 
+    @include tablet { width: 520px; }
+    @include mobile { width: 80%; }
+}
+
+.image-home1b{
+    position: absolute;
+    width: 480px;
+    height: auto;
+    right: 7%;
+    bottom: 20%; 
+    @include tablet { width: 315px; }
+    @include mobile { width: 50%; bottom: 26%; }
+}
+
+// Page 2
+
+.image-home2a{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    bottom: -40px;
+    margin-left: 140px;
+}
+
+.txt2a{
+    position: absolute;
+    left: 7%;
+    top: 13%;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+.txt2b{
+    position: absolute;
+    bottom: 60px;
+    text-align: center;
+}
+
+.wrapper-video {
+    video { 
+        @include mobile { 
+            clip-path: circle(60px at 70% 57%); 
+        }
+    }
+
+    &.active {
+        video { 
+            @include mobile { 
+                clip-path: circle(100vw at 50% 50%) !important; 
+            }
+        }
+    }
+    span { @include mobile { left: 67%; top: 58%; } }
+}
+
+//page 3
+.image-home3a{
+    position: absolute;
+    width: auto;
+    height: 90vh;
+    bottom: -40px;
+    margin-left: 140px;
+    @include mobile { margin-left: -70px; }
+}
+
+.image-home3b{
+    position: absolute;
+    width: 100%;
+    bottom: 43%;
+    left: 0%;
+    @include mobile { display: none; }
+}
+
+.txt3a{
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    text-align: right;
+    @include mobile { left: auto; right: 3%; }
+}
+
+.txt3b{
+    position: absolute;
+    top: 49%;
+    left: 35%;
+    .txt-x2{ 
+        margin-top: -17px; display: block;
+        @include mobile { margin-top: -5px; }
+    }
+}
+
+.txt3c{
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    @include mobile { right: 3%; bottom: 20%; }
+}
+
+.txt3d{
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+}
+
+//page4
+.image-home4a{
+    position: absolute;
+    width: auto;
+    height: 96%;
+    bottom: -40px;
+}
+
+.txt4a{
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    text-align: left;
+    @include mobile { left: 0; right: 5%; text-align: right; }
+}
+
+.txt4b{
+    position: absolute;
+    bottom: 7%;
+    right: 5%;
+    text-align: right;
+    @include mobile { bottom: 15%; }
+}
+
+//page5
+
+.txt5a{
+    position: absolute;
+    top: 5%;
+    text-align: right;
+    z-index: 1;
+}
+
+.image-home5{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    transition: 0.6s all;
+    object-fit: contain;
+    object-position: center;
+    @include mobile { width: 100%; height:100%; top: 0; left: 0; }
+}
+
+.btn-home5 {
+    position: relative;
+    color: #F22A82;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet { margin: 0 2rem; }
+    @include mobile { display: none; font-size: 3rem; }
+    .circle {
+        width: 180px;
+        height: 180px;
+        color: #95D4CC;
+        background-color: #FFF;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.6s all;
+        @include mobile { width: 210px; height: 210px; }
+    }
+
+    &.active{
+        @include mobile { display: flex; }
+        .circle {
+            background-color: #F22A82;
+            color: #FFF;
+        }
+    }
+
+    .txt {
+        position: absolute;
+        top: 190px;
+
+        @include mobile { top: 210px; }
+    }
+}
+
+//page6
+.image-home6a{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    bottom: -40px;
+    left: -5%;
+    @include tablet { left: -15%;}
+    @include mobile { left: 10%; }
+}
+
+.image-home6b{
+    position: absolute;
+    width: auto;
+    height: 40vh;
+    left: 42%;
+    top: 15%;
+}
+
+.txt6a{
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    text-align: right;
+    @include mobile { top: 28%; right: auto; left: 5%; text-align: left; }
+}
+
+.txt6b{
+    position: absolute;
+    bottom: 40%;
+    right: 5%;
+    text-align: left;
+    @include mobile { right: auto; left: 5%; bottom: 30%; }
+}
+
+.btn-cases {
+    position: absolute;
+    bottom: 8%;
+    right: 14%;
+    z-index: 1;
+    cursor: pointer;
+    @include mobile { left: auto; right: auto; bottom: 0%; transform: scale(0.8); }
+}
+
+//page6a
+.txt6d{
+    position: absolute;
+    width: 30%;
+    top: 30%;
+    left: 10%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: right;
+}
+
+.opinion{
+    font-size: 1.3rem;
+    text-align: center;
+    color: rgb(19, 19, 19);
+    width: 60%;
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+}
+

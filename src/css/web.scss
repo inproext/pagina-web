@@ -15,8 +15,6 @@ body{
     padding: 0;
     font-family: 'Fraunces', serif;
     overflow: hidden;
-    @include mobile { opacity: 0.5; }  
-    @include tablet { opacity: 0.75; }  
 }
 
 .container-mark{
@@ -35,6 +33,7 @@ body{
         left: 0;
         right: 0;
         width: 30px;
+        @include mobile { width: 24px; } 
     }
 }
 
