@@ -6,6 +6,7 @@ class Game3d {
     constructor () {
         let pmremGenerator;
         let debugHelpers = false;
+
         this.mixer;
         this.modelAnimation;
         this.clock = new THREE.Clock();
@@ -52,7 +53,7 @@ class Game3d {
 
 
         let particlesGeometry = new THREE.BufferGeometry();
-        let count = 0;
+        let count = 500000;  //this.stars 500000;
         let positions = new Float32Array(count * 3);
         let colors = new Float32Array(count * 3);
 
@@ -145,8 +146,6 @@ class Game3d {
             },
             complete: function() {
                 dispatchEvent(_this.eventEndMovement);
-                // document.getElementById(_point.hotSpot).classList.add('active');
-                // contentButtons.style.display = "flex";
             }
         });
     }
@@ -189,6 +188,7 @@ class Game3d {
 
 
     resize() {
+        console.log(window.innerWidth, window.innerHeight);
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -197,12 +197,7 @@ class Game3d {
     update(_obj) {
         let delta = this.clock.getDelta();
         let elapsedTime = this.clock.getElapsedTime();
-        /*
-        this.camera.position.x = this.model.getObjectByName('EsferaCubo').position.x;
-        this.camera.position.y = this.model.getObjectByName('EsferaCubo').position.y;
-        this.camera.position.z = this.model.getObjectByName('EsferaCubo').position.z;
-        this.camera.lookAt(this.model.getObjectByName('cubo').position);
-        */
+
         this.particle.rotation.y = elapsedTime * 0.02;
 
         this.mixer.update(delta);

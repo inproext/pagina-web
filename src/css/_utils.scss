@@ -40,6 +40,7 @@
         clip-path: circle(60px at 85% center);
         cursor: pointer;
         transition: clip-path 0.3s ease;
+        background-color: #000;
     }
 
     span {
@@ -51,14 +52,13 @@
         text-decoration: underline;
         cursor: pointer;
         z-index: 1;
-        &:hover + video{
-            clip-path: circle(80px at 85% center);
-        }
     }
 
     &.active{
         span { opacity: 0; }
-        video { clip-path: circle(100vw at 85% center); }
+        video { 
+            clip-path: circle(100vw at 85% center);
+        }
     }
 }
 
@@ -109,6 +109,7 @@
         .arrows {
             width: 90%;
             left: 5%;
+            bottom: 25%;
             position: absolute;
             display: flex;
             justify-content: space-between;
@@ -118,7 +119,9 @@
                 &:hover {
                     transform: scale(0.8);
                 } 
+                @include mobile { width: 20px; }
             }
+            @include mobile { bottom: 12%;  width: 40%; left: 30%;}
         }
     }
 }

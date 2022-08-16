@@ -3,7 +3,8 @@ import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
 
-const game3d = new Game3d(); 
+const activeModel = true;
+const game3d = new Game3d();
 const preload = new LoaderFiles();
 
 let bd = document.body;
@@ -22,9 +23,8 @@ let currentPosition = 0,
 let slideDirection = '';
 let scrollDirection = '';
 
-
+/*
 let cameraPoints = [
-    //x,y,z corresponde a la posicion de la cubo //cx, cy, cz corresponde a la posición del camara
     { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
     { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
     { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#95D4CC',  speed: 1000 },
@@ -33,6 +33,17 @@ let cameraPoints = [
     { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
     { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
     { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
+];
+*/
+let cameraPoints = [
+    { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#000', speed: 2000 },
+    { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },  
+    { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
+    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#000', speed: 1000 },
+    { id: 5, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#000', speed: 1000 },
+    { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#000', speed: 1000 },
+    { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },
+    { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
 ];
 
 preload.addContents([
@@ -96,8 +107,11 @@ preload.load(function (_progress) {
 
 function init() {
     setEvents();
-    game3d.addModel(Library.models['modelo1'], 'gltf');
-    game3d.resize();
+    if(activeModel)
+    {
+        game3d.addModel(Library.models['modelo1'], 'gltf');
+        game3d.resize();
+    }
     loop();
     fn_load();
 }
@@ -108,7 +122,7 @@ function fn_load(){
     if(currentPosition !== lastPosition) {
         layerContent.innerHTML = '';
         //layerMain.style.display = 'none';
-        game3d.moveCamera(cameraPoints[currentPosition]);
+        if(activeModel) game3d.moveCamera(cameraPoints[currentPosition]);
         layerContent.innerHTML = Library.contents[currentPosition+1];
         checkScrollDirection();
         checkLiquidButton();
@@ -187,6 +201,7 @@ function setEvents() {
     });
 
     menuItem.forEach((_item) => {
+        /*
         _item.addEventListener('click', function() {
             let pos = parseInt(this.getAttribute('data-html'));
             currentPosition = pos;
@@ -195,11 +210,12 @@ function setEvents() {
             this.classList.add('active');
             fn_load();
         });
+        */
     });
 
 
     window.addEventListener('resize', function() {
-        game3d.resize();
+        if(activeModel) game3d.resize();
     });
 
     window.addEventListener('endmovement', function() {
@@ -370,5 +386,5 @@ function deactiveBullets () {
 
 function loop() {
     requestAnimationFrame(loop);
-    game3d.update(points);
+    if(activeModel) game3d.update(points);
 }

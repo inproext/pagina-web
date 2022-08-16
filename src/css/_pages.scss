@@ -56,7 +56,7 @@
     &.active {
         video { 
             @include mobile { 
-                clip-path: circle(100vw at 50% 50%) !important; 
+                clip-path: circle(120vw at 50% 50%) !important; 
             }
         }
     }
@@ -180,7 +180,7 @@
         justify-content: center;
         align-items: center;
         transition: 0.6s all;
-        @include mobile { width: 210px; height: 210px; }
+        @include mobile { width: 140px; height: 140px; }
     }
 
     &.active{
@@ -205,17 +205,10 @@
     width: auto;
     height: 80vh;
     bottom: -40px;
-    left: -5%;
+    left: 0%;
+    @include laptop { left: -5%; }
     @include tablet { left: -15%;}
     @include mobile { left: 10%; }
-}
-
-.image-home6b{
-    position: absolute;
-    width: auto;
-    height: 40vh;
-    left: 42%;
-    top: 15%;
 }
 
 .txt6a{
@@ -244,23 +237,81 @@
 }
 
 //page6a
+
+.image-home6b{
+    position: absolute;
+    width: auto;
+    height: 40vh;
+    top: 15%;
+    @include mobile { top: 16%; height: 30vh; }
+}
+
+.txt6c{
+    position: absolute;
+    top: 14%;
+    left: 18%;
+    text-align: right;
+    @include laptop { top: 14%; left: 10%; }
+    @include tablet { top: 7%; left: 7%;}
+    @include mobile { left: auto; text-align: center; }
+}
+
 .txt6d{
     position: absolute;
-    width: 30%;
-    top: 30%;
-    left: 10%;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    top: 28%;
+    right: 6%;
+    text-align: left;
+    @include mobile { display: none; }
+}
+
+.txt6e {
+    position: absolute;
+    width: 60%;
+    top: 65%;
+    text-align: center;
+    @include laptop { width: 75%; }
+    @include tablet { width: 80%; }
+    @include mobile { top: 55%; width: 90%; }
+}
+//page 7
+
+.btn-app {
+    position: absolute;
+    z-index: 100;
+}
+
+.txt7a{
+    position: absolute;
+    top: 7%;
     text-align: right;
 }
 
-.opinion{
-    font-size: 1.3rem;
-    text-align: center;
-    color: rgb(19, 19, 19);
-    width: 60%;
+.txt7b{
     position: absolute;
     bottom: 20%;
-    left: 20%;
+    text-align: right;
 }
 
+//page8
+.txt8a {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    text-align: right;
+    @include mobile { left: 5%; top: 37%; }
+}
+
+.txt8b {
+    position: absolute;
+    bottom: 35%;
+    right: 25%;
+    text-align: left;
+    span{
+        &.txt-x2 {
+            display: block;
+            margin-top: -20px;
+            @include mobile { margin-top: -10px; }
+        }
+    }
+    @include mobile { right: 5%; bottom: 37%; }
+}
