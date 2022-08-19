@@ -3,7 +3,7 @@ import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
 
-const activeModel = true;
+const activeModel = false;
 const game3d = new Game3d();
 const preload = new LoaderFiles();
 
@@ -23,7 +23,6 @@ let currentPosition = 0,
 let slideDirection = '';
 let scrollDirection = '';
 
-/*
 let cameraPoints = [
     { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
     { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
@@ -34,7 +33,7 @@ let cameraPoints = [
     { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
     { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
 ];
-*/
+/*
 let cameraPoints = [
     { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#000', speed: 2000 },
     { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },  
@@ -45,7 +44,7 @@ let cameraPoints = [
     { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#000', speed: 1000 },
     { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#000',  speed: 1000 },
 ];
-
+*/
 preload.addContents([
 	{ id: '1', src: 'dist/html/1.html' },
     { id: '2', src: 'dist/html/2.html' },

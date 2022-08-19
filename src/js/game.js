@@ -53,7 +53,7 @@ class Game3d {
 
 
         let particlesGeometry = new THREE.BufferGeometry();
-        let count = 500000;  //this.stars 500000;
+        let count = 0;  //this.stars 500000;
         let positions = new Float32Array(count * 3);
         let colors = new Float32Array(count * 3);
 
