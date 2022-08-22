@@ -81,7 +81,8 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
-internas
+internas/*/dist
+internas/*/node_modules
 
 # Gatsby files
 .cache/

@@ -1,0 +1,77 @@
+<div class="home-page">
+    <div class="carrousel">
+        <div id="Slide4a" class="slide active">
+            <div class="txt4a txt-shadow animate__animated animate__lightSpeedInLeft">
+                <span class="txt-x3">Multimedia en</span> <br>
+                <span class="txt-x3">formato SCORM</span> 
+            </div>
+
+            <div id="VideoReel1" class="wrapper-video animate__animated animate__fadeInDown">
+                <span onclick="addActive('#VideoReel1');">Ver reel</span>
+                <video onclick="addActive('#VideoReel1');" loop muted autoplay playsinline>
+                    <source src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4">
+                </video>
+            </div>
+            
+            <div class="txt4b animate__animated animate__fadeIn">
+                <span class="txt-x5">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.
+                </span>
+            </div>
+
+            <div class="arrows">
+                <img data-image="arrow-left" class="load-image btn-arrow" style="opacity: 0;">
+                <img data-image="arrow-right" class="load-image btn-arrow" onclick="showAndHide('#Slide4b','#Slide4a');">
+            </div>
+        </div>
+
+        <div id="Slide4b" class="slide">
+            <div class="txt4a txt-shadow animate__animated animate__lightSpeedInLeft">
+                <span class="txt-x3">Multimedia en</span> <br>
+                <span class="txt-x3">formato SCORM</span> 
+            </div>
+
+            <div class="txt4b animate__animated animate__fadeIn">
+                <span class="txt-x5">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.
+                </span>
+            </div>
+            
+            <div id="VideoReel2" class="wrapper-video">
+                <span onclick="addActive('#VideoReel2');">Ver reel</span>
+                <video onclick="addActive('#VideoReel2');" loop muted autoplay playsinline>
+                    <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4">
+                </video>
+            </div>
+
+            <div class="arrows">
+                <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide4a','#Slide4b');">
+                <img data-image="arrow-right" class="load-image btn-arrow" onclick="showAndHide('#Slide4c','#Slide4b');">
+            </div>
+        </div>
+
+        <div id="Slide4c" class="slide">
+            <div class="txt4a txt-shadow animate__animated animate__lightSpeedInLeft">
+                <span class="txt-x3">Multimedia en</span> <br>
+                <span class="txt-x3">formato SCORM</span> 
+            </div>
+            
+            <div class="txt4b animate__animated animate__fadeIn">
+                <span class="txt-x5">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio ratione nam nobis repellat. Iusto hic ab ut cumque aspernatur facilis eveniet voluptatibus eaque, aut saepe fuga similique tempora magni.
+                </span>
+            </div>
+            
+            <div id="VideoReel3" class="wrapper-video">
+                <span onclick="addActive('#VideoReel3');">Ver reel</span>
+                <video onclick="addActive('#VideoReel3');" loop muted autoplay playsinline>
+                    <source src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4">
+                </video>
+            </div>
+
+            <div class="arrows">
+                <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide4b','#Slide4c');">
+            </div>
+        </div>
+    </div>
+</div>
