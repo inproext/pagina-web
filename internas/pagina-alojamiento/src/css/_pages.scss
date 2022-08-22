@@ -1,0 +1,126 @@
+@import 'mediaqueries';
+
+// Page 1
+
+.image-alojamiento1a{
+    position: absolute;
+    width: auto;
+    height: 85vh;
+    bottom: -10vh;
+    left: 10%;
+    @include tablet { width: 520px; }
+    @include mobile { width: 80%; }
+}
+
+.txt1a{
+    position: absolute;
+    right: 15%;
+    top: 45%;
+    text-align: right;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+// Page 2
+
+.image-alojamiento2a{
+    position: absolute;
+    left: 10%;
+    width: 250px;
+    height: auto;
+}
+
+.image-alojamiento2b{
+    position: absolute;
+    right: 10%;
+    width: 250px;
+    height: auto;
+}
+
+.txt2a{
+    position: absolute;
+    width: 25%;
+    top: 25%;
+    text-align: center;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+//page 3
+.image-alojamiento3a{
+    position: absolute;
+    width: auto;
+    top: 35%;
+    left: 10%;
+    height: 40vh;
+    @include mobile { height: 50vh; }
+}
+
+.image-alojamiento3b{
+    position: absolute;
+    width: auto;
+    top: 35%;
+    height: 40vh;
+    @include mobile { height: 50vh; }
+}
+
+
+.image-alojamiento3c{
+    position: absolute;
+    width: auto;
+    top: 35%;
+    right: 10%;
+    height: 40vh;
+    @include mobile { height: 50vh; }
+}
+
+.txt3a{
+    position: absolute;
+    top: 17%;
+    text-align: center;
+    @include mobile { left: auto; right: 3%; }
+}
+
+//page4
+.txt4a{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    text-align: right;
+    @include laptop { top: 14%; left: 10%; }
+    @include tablet { top: 7%; left: 7%;}
+    @include mobile { left: auto; text-align: center; }
+}
+
+.txt4b {
+    position: absolute;
+    width: 60%;
+    top: 65%;
+    text-align: center;
+    @include laptop { width: 75%; }
+    @include tablet { width: 80%; }
+    @include mobile { top: 55%; width: 90%; }
+}
+
+.wrapper-video {
+    video { 
+        clip-path: circle(175px at 50% 45%); 
+        @include mobile { 
+            clip-path: circle(60px at 50% 50%); 
+        }
+    }
+
+    &.active {
+        video { 
+            @include mobile { 
+                clip-path: circle(120vw at 50% 45%) !important; 
+            }
+        }
+    }
+    span { 
+        left: 60%;
+        top: 44%;
+        @include mobile { left: 50%; top: 50%; } 
+    }
+}
+

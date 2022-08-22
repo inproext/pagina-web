@@ -1,0 +1,163 @@
+@import 'mediaqueries';
+
+// Page 1
+
+.image-inmersivo1a{
+    position: absolute;
+    width: auto;
+    height: 90vh;
+    bottom: -10vh;
+    @include tablet { width: 520px; }
+    @include mobile { width: 80%; }
+}
+
+.image-inmersivo1b{
+    position: absolute;
+    width: 754px;
+    height: auto;
+    right: 12%;
+    bottom: -6%; 
+    @include tablet { width: 315px; }
+    @include mobile { width: 50%; bottom: 26%; }
+}
+
+// Page 2
+
+.image-inmersivo2a{
+    position: absolute;
+    width: auto;
+    height: 95vh;
+}
+
+.txt2a{
+    position: absolute;
+    width: 30%;
+    left: 7%;
+    top: 13%;
+    text-align: right;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+.txt2b{
+    position: absolute;
+    width: 30%;
+    right: 7%;
+    bottom: 13%;
+    text-align: left;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+//page 3
+.image-inmersivo3a{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    left: 10%;
+    bottom: -40px;
+    @include mobile { margin-left: -70px; }
+}
+
+.image-inmersivo3b{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    right: 30%;
+    bottom: -40px;
+    @include mobile { display: none; }
+}
+
+.txt3a{
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    @include mobile { left: auto; right: 3%; }
+}
+
+.txt3b{
+    position: absolute;
+    text-align: left;
+    top: 40%;
+    width: 40%;
+    .txt-x2{ 
+        margin-top: -17px; display: block;
+        @include mobile { margin-top: -5px; }
+    }
+}
+
+.txt3c{
+    position: absolute;
+    text-align: center;
+    bottom: 15%;
+    width: 50%;
+    @include mobile { right: 3%; bottom: 20%; }
+}
+
+.txt3d{
+    position: absolute;
+    text-align: left;
+    left: 7%;
+    bottom: 15%;
+    width: 30%;
+    @include mobile { right: 3%; bottom: 20%; }
+}
+
+.txt3e{
+    position: absolute;
+    text-align: right;
+    right: 7%;
+    top: 20%;
+    width: 30%;
+    @include mobile { right: 3%; bottom: 20%; }
+}
+
+//page4
+.image-inmersivo4a{
+    position: absolute;
+    width: auto;
+    height: 95vh;
+}
+
+.txt4a{
+    position: absolute;
+    width: 30%;
+    left: 7%;
+    top: 50%;
+    text-align: left;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+.txt4b{
+    position: absolute;
+    width: 30%;
+    right: 7%;
+    top: 20%;
+    text-align: right;
+    @include tablet { left: 5%; }
+    @include mobile { top: 5%; }
+}
+
+.wrapper-video {
+    video { 
+        clip-path: circle(175px at 50% 45%); 
+        @include mobile { 
+            clip-path: circle(60px at 50% 50%); 
+        }
+    }
+
+    &.active {
+        video { 
+            @include mobile { 
+                clip-path: circle(120vw at 50% 45%) !important; 
+            }
+        }
+    }
+    span { 
+        left: 60%;
+        top: 44%;
+        @include mobile { left: 50%; top: 50%; } 
+    }
+}
+
