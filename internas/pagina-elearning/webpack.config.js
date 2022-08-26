@@ -16,20 +16,12 @@ const config = {
     module : {
         rules: [
             {
-                test: /\.css$/i,
-                use: [
-                    MiniCSSExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
-            {
-              test: /\.s[ac]ss$/i,
+              test: /\.(c|sa|sc)ss$/i,
               use: [
                 // Creates `style` nodes from JS strings
-                "style-loader",
+                process.env.NODE_ENV !== "production" ? "style-loader" : MiniCSSExtractPlugin.loader,
                 // Translates CSS into CommonJS
                 "css-loader",
-                // Compiles Sass to CSS
                 "sass-loader",
               ],
             },
@@ -49,7 +41,7 @@ const config = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: 'bundle.css'
+          filename: "bundle.min.css",
         }),
         new CopyPlugin({
             patterns: [
