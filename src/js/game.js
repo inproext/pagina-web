@@ -1,7 +1,6 @@
 import * as THREE from './libs/three/three.module.js';
 import { OrbitControls } from './libs/three/OrbitControls.js';
 import { RoomEnvironment } from './libs/three/RoomEnvironment.js';
-
 class Game3d {
     constructor () {
         let pmremGenerator;
@@ -11,7 +10,7 @@ class Game3d {
         this.modelAnimation;
         this.clock = new THREE.Clock();
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color( 0x000000 );
+        this.scene.background = new THREE.Color( 0xFFA4FF );
         
         this.eventEndMovement = new Event('endmovement');
         this.renderer = new THREE.WebGLRenderer({ 
@@ -28,9 +27,9 @@ class Game3d {
         this.scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
 
-        this.camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.01, 100)
-        this.camera.position.set( 0, 0, -0.0367);
-        this.camera.lookAt(new THREE.Vector3(0,0,0));
+        this.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.01, 100)
+        this.camera.position.set( -0.82, 0.284, 0.493);
+        
 
         /**CREATE OBJECTS */
         this.cube = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true }));
@@ -91,19 +90,28 @@ class Game3d {
     }
 
     controls() {
+        /*
         let _this = this;
         this.ctrl = new OrbitControls(this.camera, this.renderer.domElement);
         this.ctrl.target.set(0,0.5,0);
         this.ctrl.update();
         this.ctrl.enablePan = true;
         this.ctrl.enableDamping = true;
+        this.ctrl.listenToKeyEvents(window);
         this.ctrl.addEventListener('end', function() {
             //_this.camera.lookAt(_this.cube.position);
         });
-       
+        */
+        this.cursor = { x: 0, y: 0 };
+        window.addEventListener('mousemove', (_ev) => {
+            this.cursor.x = _ev.clientX / window.innerWidth - 0.5;
+            this.cursor.y = _ev.clientY / window.innerHeight - 0.5;
+        });
+        
     }
 
     moveCamera(_point){
+        /*
         let _this = this;
 
         let geometry = this.model.getObjectByName(_point.geometry);
@@ -120,8 +128,9 @@ class Game3d {
         
         this.satelite2.position.x = child.position.x;
         this.satelite2.position.y = child.position.y;
+        
         if(_point.id === 1) {
-            this.playAnimation();
+            //this.playAnimation();
             this.satelite2.position.z = child.position.z > 0 ? child.position.z + 0.2 : child.position.z - 0.2;
         }
         else{
@@ -148,6 +157,8 @@ class Game3d {
                 dispatchEvent(_this.eventEndMovement);
             }
         });
+        */
+        this.camera.lookAt(new THREE.Vector3(0,0,0));
     }
 
     addModel(_model, _type) {
@@ -160,13 +171,20 @@ class Game3d {
             this.modelAnimation.animations.forEach((_item) => {
                 this.mixer.clipAction(_item).play();
             });
+          
+            this.model.children[0].children.forEach(_item => {
+                console.log(_item);
+                _item.material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 1 } );
+                _item.material.wireframe = true;
+            });
+            /*
             this.model.getObjectByName('EsferaCubo').visible = false;
             this.model.getObjectByName('EsferaEsfera').visible = false;
             this.model.getObjectByName('OctaedroEsfera').visible = false;
             this.model.getObjectByName('IcosaedroEsfera').visible = false;
             this.model.getObjectByName('DodecaedroEsfera').visible = false;
-
-            this.playAnimation();
+            */
+            //this.playAnimation();
         }
         else {
             this.model = _model;
@@ -188,7 +206,6 @@ class Game3d {
 
 
     resize() {
-        console.log(window.innerWidth, window.innerHeight);
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -197,9 +214,13 @@ class Game3d {
     update(_obj) {
         let delta = this.clock.getDelta();
         let elapsedTime = this.clock.getElapsedTime();
-
+        /*
+        this.camera.position.x = this.satelite2.position.x + Math.sin(this.cursor.x * Math.PI * 2) * 0.05; //this.satelite2.position.x + (this.cursor.x * 0.01);
+        this.camera.position.z = this.satelite2.position.z + Math.cos(this.cursor.x * Math.PI * 2) * 0.05;//this.satelite2.position.y + (this.cursor.y * 0.01);
+        this.camera.position.y = this.satelite2.position.y + (this.cursor.y * 0.05);
+        this.camera.lookAt(new THREE.Vector3(0,0,0));
         this.particle.rotation.y = elapsedTime * 0.02;
-
+        */
         this.mixer.update(delta);
         this.renderer.render(this.scene,this.camera);
     }

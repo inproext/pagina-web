@@ -298,6 +298,7 @@
     top: 35%;
     left: 25%;
     text-align: right;
+    @include laptop { top: 32%; }
     @include mobile { left: 5%; top: 37%; }
 }
 
@@ -313,5 +314,6 @@
             @include mobile { margin-top: -10px; }
         }
     }
+    @include laptop { bottom: 32%; }
     @include mobile { right: 5%; bottom: 37%; }
 }
