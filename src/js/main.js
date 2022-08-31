@@ -3,7 +3,7 @@ import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
 
-const activeModel = false;
+const activeModel = true;
 const game3d = new Game3d();
 const preload = new LoaderFiles();
 
