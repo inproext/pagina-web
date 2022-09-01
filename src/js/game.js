@@ -27,7 +27,7 @@ class Game3d {
         this.scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
 
-        this.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.01, 100)
+        this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.01, 100)
         this.camera.position.set( -0.82, 0.284, 0.493);
         
 
@@ -39,15 +39,9 @@ class Game3d {
         this.cube.visible = debugHelpers;
 
         this.satelite = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0xffff00, wireframe: true }));
-        this.satelite.scale.x = 0.02;
-        this.satelite.scale.y = 0.02;
-        this.satelite.scale.z = 0.02;
         this.satelite.visible = debugHelpers;
 
         this.satelite2 = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0x0000ff, wireframe: true }));
-        this.satelite2.scale.x = 0.02;
-        this.satelite2.scale.y = 0.02;
-        this.satelite2.scale.z = 0.02;
         this.satelite2.visible = debugHelpers;
 
 
@@ -162,6 +156,8 @@ class Game3d {
     }
 
     addModel(_model, _type) {
+        this.modeloLineSegment = [];
+
         if(_type == 'gltf') {
             this.model = _model.scene;
             this.modelAnimation = _model;
@@ -173,9 +169,29 @@ class Game3d {
             });
           
             this.model.children[0].children.forEach(_item => {
-                console.log(_item);
-                _item.material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 1 } );
-                _item.material.wireframe = true;
+                console.log(_item)
+                let edges = new THREE.EdgesGeometry(_item.geometry, 5);
+                let ls = new THREE.LineSegments( edges , new THREE.LineBasicMaterial( { color: 0xffffff } ));
+                ls.position.x = _item.position.x;
+                ls.position.y = _item.position.y;
+                ls.position.z = _item.position.z;
+                ls.rotation.x = _item.rotation.x;
+                ls.rotation.y = _item.rotation.y;
+                ls.rotation.z = _item.rotation.z;
+                ls.scale.x = _item.scale.x;
+                ls.scale.y = _item.scale.y;
+                ls.scale.z = _item.scale.z;
+                _item.visible = true;
+                this.modeloLineSegment.push(ls);
+                /*
+                _item.material = new THREE.LineDashedMaterial( { 
+                    color: 0xffffff,
+                    linewidth: 1,
+                    dashSize: 3,
+	                gapSize: 1,
+                });
+                */
+                
             });
             /*
             this.model.getObjectByName('EsferaCubo').visible = false;
@@ -189,6 +205,8 @@ class Game3d {
         else {
             this.model = _model;
         }
+
+        this.modeloLineSegment.forEach(_itemLine => this.scene.add(_itemLine));
         this.scene.add(this.model);
     }
 
@@ -215,12 +233,27 @@ class Game3d {
         let delta = this.clock.getDelta();
         let elapsedTime = this.clock.getElapsedTime();
         /*
-        this.camera.position.x = this.satelite2.position.x + Math.sin(this.cursor.x * Math.PI * 2) * 0.05; //this.satelite2.position.x + (this.cursor.x * 0.01);
-        this.camera.position.z = this.satelite2.position.z + Math.cos(this.cursor.x * Math.PI * 2) * 0.05;//this.satelite2.position.y + (this.cursor.y * 0.01);
-        this.camera.position.y = this.satelite2.position.y + (this.cursor.y * 0.05);
+        this.camera.position.x = Math.sin(this.cursor.x * Math.PI * 2) * 0.05; //this.satelite2.position.x + (this.cursor.x * 0.01);
+        this.camera.position.z = Math.cos(this.cursor.x * Math.PI * 2) * 0.05;//this.satelite2.position.y + (this.cursor.y * 0.01);
+        this.camera.position.y = (this.cursor.y * 0.05);
+        */
         this.camera.lookAt(new THREE.Vector3(0,0,0));
         this.particle.rotation.y = elapsedTime * 0.02;
-        */
+        
+
+        this.model.children[0].children.forEach((_item, _index) => {
+
+            this.modeloLineSegment[_index].position.x = _item.position.x;
+            this.modeloLineSegment[_index].position.y = _item.position.y;
+            this.modeloLineSegment[_index].position.z = _item.position.z;
+            this.modeloLineSegment[_index].rotation.x = _item.rotation.x;
+            this.modeloLineSegment[_index].rotation.y = _item.rotation.y;
+            this.modeloLineSegment[_index].rotation.z = _item.rotation.z;
+            this.modeloLineSegment[_index].scale.x = _item.scale.x;
+            this.modeloLineSegment[_index].scale.y = _item.scale.y;
+            this.modeloLineSegment[_index].scale.z = _item.scale.z;
+        });
+
         this.mixer.update(delta);
         this.renderer.render(this.scene,this.camera);
     }
