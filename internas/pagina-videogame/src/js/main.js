@@ -43,6 +43,7 @@ preload.addImages([
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
     { id: 'videogame_1a', src: 'dist/img/videogame_1a.png' },
     { id: 'videogame_1b', src: 'dist/img/videogame_1b.png' },
+    { id: 'videogame_1c', src: 'dist/img/videogame_1c.png' },
     { id: 'videogame_2a', src: 'dist/img/videogame_2a.png' },
     { id: 'videogame_3a', src: 'dist/img/videogame_3a.png' },
     { id: 'videogame_3b', src: 'dist/img/videogame_3b.png' },

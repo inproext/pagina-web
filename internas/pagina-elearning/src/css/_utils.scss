@@ -107,9 +107,8 @@
         }
 
         .arrows {
-            width: 90%;
-            left: 5%;
-            bottom: 25%;
+            width: 80%;
+            bottom: 15%;
             position: absolute;
             display: flex;
             justify-content: space-between;
@@ -121,7 +120,8 @@
                 } 
                 @include mobile { width: 20px; }
             }
-            @include mobile { bottom: 12%;  width: 40%; left: 30%;}
+            @include tablet{ bottom: 17%;  width: 80%;}
+            @include mobile { bottom: 12%;  width: 40%;}
         }
     }
 }

@@ -16,7 +16,7 @@ p{
 }
 
 .txt-x3{
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 600;
     line-height: 4.0rem;
     @include laptop { font-size: 3.7rem; line-height: 3.5rem; }
@@ -35,11 +35,11 @@ p{
 }
 
 .txt-x5{ 
-    font-size: 2.5rem;
-    font-weight: 100;
+    font-size: 2rem;
+    font-weight: 200;
     line-height: 2.0rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
-    @include mobile { font-size: 2rem; line-height: 1.725rem; }
+    @include laptop { font-size: 2rem; line-height: 1.725rem; }
     @include tablet { font-size: 1.7rem; line-height: 1.5rem; }
     @include mobile { font-size: 1.2rem; line-height: 0.725rem; }
 }

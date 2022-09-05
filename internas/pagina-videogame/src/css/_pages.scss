@@ -6,20 +6,29 @@
     position: absolute;
     width: auto;
     height: 100vh;
-    bottom: -18vh;
-    left: 10%;
-    @include tablet { width: 520px; }
-    @include mobile { width: 80%; }
+    bottom: -6%;
+    @include tablet { }
+    @include mobile { width: 80%; height: auto; left: 12%; }
 }
 
 .image-videogame1b{
     position: absolute;
     width: auto;
-    height: 50vh;
-    left: 42%;
-    top: 27%;
-    @include tablet { width: 315px; }
-    @include mobile { width: 50%; bottom: 26%; }
+    height: 100vh;
+    bottom: -22vh;
+    left: 10%;
+    @include tablet { width: 75%; height: auto; }
+    @include mobile { width: 100%; height: auto; bottom: -8%; left: 0; }
+}
+
+.image-videogame1c{
+    position: absolute;
+    width: auto;
+    height: 40vh;
+    left: 56%;
+    top: 19%;
+    @include tablet { width: 45%; height: auto; top: 7%; left: 37%; }
+    @include mobile { width: 80%; height: auto; left: 12%; top: 16%; }
 }
 
 // Page 2
@@ -29,72 +38,71 @@
     width: auto;
     height: 60vh;
     top: 5%;
+    @include mobile { width: auto; height: 40%; top: 25%; }
 }
 
 .txt2a{
     position: absolute;
-    left: 7%;
+    left: 4%;
     top: 13%;
     width: 30%;
     text-align: right;
     @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include mobile { top: 8%; width: 80%; text-align: center; left: 11%; }
 }
 
 .txt2b{
     position: absolute;
-    right: 7%;
-    top: 13%;
+    right: 5%;
+    top: 11%;
     width: 30%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { width: 80%; top: 70%; left: 11%; }
 }
 
 .txt2c{
     position: absolute;
-    right: 7%;
-    bottom: 9%;
+    bottom: 11%;
     text-align: center;
     @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include mobile { display: none;}
 }
 
 //page 3
 .image-videogame3a{
     position: absolute;
     width: auto;
-    height: 90vh;
-    bottom: -40px;
-    @include mobile { margin-left: -70px; }
+    height: 115vh;
+    bottom: -35%;
+    @include mobile { width: 62%; height: auto; bottom: -8%;}
 }
 
 .image-videogame3b{
     position: absolute;
     width: auto;
-    height: 90vh;
-    bottom: -40px;
-    @include mobile { margin-left: -70px; }
+    height: 100vh;
+    bottom: -29%;
+    @include mobile { width: 59%; height: auto; bottom: -8%;}
 }
 
 .txt3a{
     position: absolute;
-    right: 7%;
+    right: 15%;
     top: 20%;
     text-align: left;
-    @include mobile { left: auto; right: 3%; }
+    @include tablet { right: 5%; right: 7%; }
+    @include mobile { width: 80%; top: 60%; text-align: left;}
 }
 
 .txt3b{
     position: absolute;
-    width: 25%;
+    width: 26%;
     top: 49%;
-    left: 7%;
+    left: 9%;
     text-align: right;
-    .txt-x2{ 
-        margin-top: -17px; display: block;
-        @include mobile { margin-top: -5px; }
-    }
+    @include tablet { left: 4%; }
+    @include mobile { width: 80%; text-align: center; top: 72%; left: 10%; }
 }
 
 .txt3c{
@@ -103,7 +111,7 @@
     top: 49%;
     left: 7%;
     text-align: right;
-    @include mobile { left: auto; right: 3%; }
+    @include mobile { width: 80%; top: 60%; text-align: left;}
 }
 
 
@@ -113,7 +121,7 @@
     right: 7%;
     top: 20%;
     text-align: left;
-    @include mobile { left: auto; right: 3%; }
+    @include mobile { width: 80%; text-align: center; top: 72%; left: 10%; }
 }
 
 
@@ -124,7 +132,8 @@
     height: 80vh;
     top: 7%;
     right: 0;
-    @include mobile { margin-left: -70px; }
+    @include tablet { width: 90%; height: auto; top: 25%; }
+    @include mobile { width: 180%; height: auto; left: -61%;}
 }
 
 .image-videogame4b{
@@ -133,28 +142,44 @@
     height: 80vh;
     top: 7%;
     right: 0;
-    @include mobile { margin-left: -70px; }
+    @include tablet { width: 90%; height: auto; top: 25%; }
+    @include mobile { width: 190%; height: auto; left: -61%;}
 }
 
 .txt4a{
     position: absolute;
     width: 35%;
-    right: 7%;
-    bottom: 7%;
+    top: 20%;
+    left: 7%;
     text-align: left;
-    @include laptop { top: 14%; left: 10%; }
-    @include tablet { top: 7%; left: 7%;}
-    @include mobile { left: auto; text-align: center; }
+    @include tablet { top: 20%; left: 7%;}
+    @include mobile { width: 80%; text-align: center; bottom: 15%; right: 10%; }
 }
 
 .txt4b {
     position: absolute;
     width: 60%;
-    top: 65%;
+    top: 20%;
+    left: 7%;
     text-align: center;
-    @include laptop { width: 75%; }
-    @include tablet { width: 80%; }
-    @include mobile { top: 55%; width: 90%; }
+    @include tablet { top: 20%; left: 7%;}
+    @include mobile { width: 80%; text-align: center; bottom: 15%; right: 10%; }
+}
+
+.txt4c {
+    position: absolute;
+    display: none;
+    @include laptop { display: none; }
+    @include tablet { display: none;}
+    @include mobile { display: block; top: 57%; width: 80%; text-align: center;}
+}
+
+.txt4d {
+    position: absolute;
+    display: none;
+    @include laptop { display: none; }
+    @include tablet { display: none;}
+    @include mobile { display: block; top: 61%; width: 80%; text-align: center;}
 }
 
 .wrapper-video {

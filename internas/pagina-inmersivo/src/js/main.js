@@ -48,6 +48,8 @@ preload.addImages([
     { id: 'inmersivo_2a', src: 'dist/img/inmersivo_2a.png' },
     { id: 'inmersivo_3a', src: 'dist/img/inmersivo_3a.png' },
     { id: 'inmersivo_3b', src: 'dist/img/inmersivo_3b.png' },
+    { id: 'inmersivo_3c', src: 'dist/img/inmersivo_3c.png' },
+    { id: 'inmersivo_3d', src: 'dist/img/inmersivo_3d.png' },
     { id: 'inmersivo_4a', src: 'dist/img/inmersivo_4a.png' }
 ]);
 

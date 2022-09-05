@@ -7,8 +7,8 @@
     width: auto;
     height: 90vh;
     bottom: -10vh;
-    @include tablet { width: 520px; }
-    @include mobile { width: 80%; }
+    @include tablet { width: auto; height: 100%;}
+    @include mobile { width: auto; height: 95%; left: -70%;}
 }
 
 .image-kids1b{
@@ -17,8 +17,8 @@
     height: auto;
     right: 20%;
     top: 33%;
-    @include tablet { width: 315px; }
-    @include mobile { width: 50%; bottom: 26%; }
+    @include tablet { width: 315px; right: 10%; }
+    @include mobile { width: 75%; right: 12%; top: 45%; }
 }
 
 // Page 2
@@ -37,7 +37,7 @@
     top: 27%;
     text-align: right;
     @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include mobile { width: 80%; top: 10%; width: 80%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: -5%; }
 }
 
 .txt2b{
@@ -46,8 +46,8 @@
     right: 7%;
     bottom: 20%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 3%; }
+    @include mobile { width: 80%; top: 60%; width: 80%; background-color:rgb(104 68 12 / 60%); padding: 15px; right: -5%; }
 }
 
 //page 3
@@ -57,14 +57,15 @@
     width: auto;
     text-align: center;
     height: 50vh;
-    @include mobile { margin-left: -70px; }
+    @include tablet { left: 6%; }
+    @include mobile { width: 80%; height: auto; top: 29%; }
 }
 
 .txt3a{
     position: absolute;
     top: 10%;
     text-align: center;
-    @include mobile { left: auto; right: 3%; }
+    @include mobile { width: 50%; }
 }
 
 .txt3b{
@@ -72,10 +73,8 @@
     width: 25%;
     top: 33%;
     right: 3%;
-    .txt-x2{ 
-        margin-top: -17px; display: block;
-        @include mobile { margin-top: -5px; }
-    }
+    @include tablet { top: 40%; }
+    @include mobile { width: 80%; top: 69%; text-align: center; right: 10%; }
 }
 
 //page4
@@ -86,6 +85,8 @@
     height: 80vh;
     bottom: -40px;
     left: 23%;
+    @include tablet { left: 14%; }
+    @include mobile { width: 90%; height: auto; top: 6%; left: 4%; border-bottom: 3px solid #fff;}
 }
 
 .txt4a{
@@ -94,8 +95,8 @@
     left: 7%;
     top: 49%;
     text-align: right;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { left: 3%; }
+    @include mobile { top: 47%; width: 80%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: -5%;}
 }
 
 .txt4b{
@@ -103,8 +104,8 @@
     right: 12%;
     top: 25%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { bottom: -35%; width: 80%; }
 }
 
 .txt4c{
@@ -112,8 +113,8 @@
     right: 12%;
     top: 25%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { bottom: -35%; width: 80%; }
 }
 
 .txt4d{
@@ -121,8 +122,8 @@
     right: 8%;
     top: 25%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { bottom: -35%; width: 80%; }
 }
 
 .txt4e{
@@ -130,8 +131,8 @@
     right: 12%;
     top: 25%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { top: 0%; width: 80%; right: 0%; }
 }
 
 .txt4f{
@@ -139,8 +140,8 @@
     right: 12%;
     top: 45%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { bottom: -16%; width: 80%; }
 }
 
 // page 5
@@ -158,6 +159,9 @@
     height: 30vh;
     top: 19%;
     right: 14%;
+    @include tablet { right: 9%; width: 20%; height: auto; top: 28%; }
+    @include mobile { display: none; }
+
 }
 
 .txt5a{
@@ -166,8 +170,8 @@
     left: 7%;
     top: 27%;
     text-align: right;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { left: 3%; }
+    @include mobile { display: none; }
 }
 
 .txt5b{
@@ -176,8 +180,8 @@
     right: 7%;
     bottom: 20%;
     text-align: left;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { top: 66%; width: 60%; text-align: center; left: 19%; }
 }
 
 .border{

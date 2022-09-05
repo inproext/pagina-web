@@ -8,8 +8,8 @@
     height: 85vh;
     bottom: -10vh;
     left: 10%;
-    @include tablet { width: 520px; }
-    @include mobile { width: 80%; }
+    @include tablet { width: 520px; height: auto; bottom: 7%; }
+    @include mobile { width: 100%;  height: auto; bottom: 25%; left: -11%;}
 }
 
 .txt1a{
@@ -17,8 +17,8 @@
     right: 15%;
     top: 45%;
     text-align: right;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { right: 5%; }
+    @include mobile { top: 75%; }
 }
 
 // Page 2
@@ -28,6 +28,8 @@
     left: 10%;
     width: 250px;
     height: auto;
+    @include tablet { width: 220px; height: auto; bottom: 25%; }
+    @include mobile { width: 140px;  height: auto; bottom: 25%;}
 }
 
 .image-alojamiento2b{
@@ -35,6 +37,8 @@
     right: 10%;
     width: 250px;
     height: auto;
+    @include tablet { width: 220px; height: auto; bottom: 25%; }
+    @include mobile { width: 140px;  height: auto; bottom: 25%;}
 }
 
 .txt2a{
@@ -42,8 +46,8 @@
     width: 25%;
     top: 25%;
     text-align: center;
-    @include tablet { left: 5%; }
-    @include mobile { top: 5%; }
+    @include tablet { top: 10%; width: 60%; }
+    @include mobile { top: 10%; width: 60%; }
 }
 
 //page 3
@@ -51,9 +55,8 @@
     position: absolute;
     width: auto;
     top: 35%;
-    left: 10%;
     height: 40vh;
-    @include mobile { height: 50vh; }
+    @include mobile { height: 40vh; }
 }
 
 .image-alojamiento3b{
@@ -61,7 +64,7 @@
     width: auto;
     top: 35%;
     height: 40vh;
-    @include mobile { height: 50vh; }
+    @include mobile { height: 40vh; }
 }
 
 
@@ -69,16 +72,15 @@
     position: absolute;
     width: auto;
     top: 35%;
-    right: 10%;
     height: 40vh;
-    @include mobile { height: 50vh; }
+    @include mobile { height: 40vh; }
 }
 
 .txt3a{
     position: absolute;
     top: 17%;
     text-align: center;
-    @include mobile { left: auto; right: 3%; }
+    @include mobile { width: 85%; top: 12%; }
 }
 
 //page4
