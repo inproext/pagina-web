@@ -24,14 +24,14 @@ let slideDirection = '';
 let scrollDirection = '';
 
 let cameraPoints = [
-    { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
-    { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
-    { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#95D4CC',  speed: 1000 },
-    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 5, satelite: 'IcosaedroEsfera', geometry: 'icosaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 6, satelite: 'DodecaedroEsfera', geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 7, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
-    { id: 8, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
+    { id: 1, geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
+    { id: 2, geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
+    { id: 3, geometry: 'esfera', bgColor: '#95D4CC',  speed: 1000 },
+    { id: 4, geometry: 'octaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 5, geometry: 'icosaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 6, geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
+    { id: 7, geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
+    { id: 8, geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
 ];
 /*
 let cameraPoints = [
