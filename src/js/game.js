@@ -1,5 +1,4 @@
 import * as THREE from './libs/three/three.module.js';
-import { OrbitControls } from './libs/three/OrbitControls.js';
 import { RoomEnvironment } from './libs/three/RoomEnvironment.js';
 class Game3d {
     constructor () {
@@ -27,24 +26,17 @@ class Game3d {
         this.scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
 
-        this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.01, 100)
-        this.camera.position.set( -0.82, 0.284, 0.493);
-        
+        this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
+        this.camera.position.set( 0.0, 0.07, -0.12);
+        this.lastCameraPosition = new THREE.Vector3(0,0,0);
+
+        this.satelite = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true }));
+        this.satelite.scale.x = 0.01;
+        this.satelite.scale.y = 0.01;
+        this.satelite.scale.z = 0.01;
+        this.satelite.visible = false;
 
         /**CREATE OBJECTS */
-        this.cube = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true }));
-        this.cube.scale.x = 1;
-        this.cube.scale.y = 1;
-        this.cube.scale.z = 1;
-        this.cube.visible = debugHelpers;
-
-        this.satelite = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0xffff00, wireframe: true }));
-        this.satelite.visible = debugHelpers;
-
-        this.satelite2 = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshBasicMaterial( { color: 0x0000ff, wireframe: true }));
-        this.satelite2.visible = debugHelpers;
-
-
         let particlesGeometry = new THREE.BufferGeometry();
         let count = 0;  //this.stars 500000;
         let positions = new Float32Array(count * 3);
@@ -74,85 +66,69 @@ class Game3d {
         
 
         this.particle = new THREE.Points(particlesGeometry, particlesMaterial);
-        this.scene.add(this.particle);
-
-        this.scene.add(this.cube);
         this.scene.add(this.satelite);
-        this.scene.add(this.satelite2);
+        this.scene.add(this.particle);
         
         this.controls();
     }
 
     controls() {
-        /*
-        let _this = this;
-        this.ctrl = new OrbitControls(this.camera, this.renderer.domElement);
-        this.ctrl.target.set(0,0.5,0);
-        this.ctrl.update();
-        this.ctrl.enablePan = true;
-        this.ctrl.enableDamping = true;
-        this.ctrl.listenToKeyEvents(window);
-        this.ctrl.addEventListener('end', function() {
-            //_this.camera.lookAt(_this.cube.position);
-        });
-        */
+        this.lerpX = {
+            current: 0,
+            target: 0,
+            ease: 0.1,
+        };
+
+        this.lerpY = {
+            current: 0,
+            target: 0,
+            ease: 0.1,
+        };
+
+        //console.log(new THREE.Vector3(1,0,0).lerp(new THREE.Vector3(5,5,0), 0.5));
         this.cursor = { x: 0, y: 0 };
         window.addEventListener('mousemove', (_ev) => {
-            this.cursor.x = _ev.clientX / window.innerWidth - 0.5;
-            this.cursor.y = _ev.clientY / window.innerHeight - 0.5;
+            this.cursor.x = ((_ev.clientX / window.innerWidth - 0.5) * 2);
+            this.cursor.y = ((_ev.clientY / window.innerHeight - 0.5) * 2);
+            this.lerpX.target = this.cursor.x * 0.01;
+            this.lerpY.target = this.cursor.y * 0.01;
         });
-        
     }
 
     moveCamera(_point){
-        /*
         let _this = this;
-
         let geometry = this.model.getObjectByName(_point.geometry);
-        let child = this.model.getObjectByName(_point.satelite);
-        let originalPoint = {
-            posX: this.camera.position.x,
-            posY: this.camera.position.y,
-            posZ: this.camera.position.z,
-            color: '#'+this.scene.background.getHexString(),
-        }
-        this.satelite.position.x = child.position.x;
-        this.satelite.position.y = child.position.y;
-        this.satelite.position.z = child.position.z;
-        
-        this.satelite2.position.x = child.position.x;
-        this.satelite2.position.y = child.position.y;
-        
         if(_point.id === 1) {
-            //this.playAnimation();
-            this.satelite2.position.z = child.position.z > 0 ? child.position.z + 0.2 : child.position.z - 0.2;
+            this.playAnimation();
         }
         else{
             this.stopAnimation();
-            this.satelite2.position.z = child.position.z;
         }
 
+        this.satelite.position.x = geometry.position.x < 0.0 ? -0.025 : +0.025;
+        this.satelite.position.y = geometry.position.y + 0.025;
+        this.satelite.position.z = geometry.position.z < 0.0 ? -0.025 : +0.025;
+
         anime({
-            targets: originalPoint,
-            posX: _this.satelite2.position.x,
-            posY: _this.satelite2.position.y,
-            posZ: _this.satelite2.position.z,
+            targets: _this.lastCameraPosition,
+            x: _this.satelite.position.x,
+            y: _this.satelite.position.y,
+            z: _this.satelite.position.z,
             color: _point.bgColor,
             easing: 'easeOutSine',
             duration: 800,
             update: function() {
-                _this.camera.position.x = originalPoint.posX;
-                _this.camera.position.y = originalPoint.posY;
-                _this.camera.position.z = originalPoint.posZ;
-                _this.scene.background = new THREE.Color( originalPoint.color);
-                _this.camera.lookAt(geometry.position);
+                _this.camera.position.x = _this.lastCameraPosition.x;
+                _this.camera.position.y = _this.lastCameraPosition.y;
+                _this.camera.position.z = _this.lastCameraPosition.z;
+                
+                _this.camera.lookAt(geometry.position);     
+                //_this.scene.background = new THREE.Color( originalPoint.color);  
             },
             complete: function() {
                 dispatchEvent(_this.eventEndMovement);
             }
         });
-        */
-        this.camera.lookAt(new THREE.Vector3(0,0,0));
     }
 
     addModel(_model, _type) {
@@ -167,46 +143,28 @@ class Game3d {
             this.modelAnimation.animations.forEach((_item) => {
                 this.mixer.clipAction(_item).play();
             });
-          
+            this.playAnimation();
+            this.model.children[0].scale.set(1,1,1);
             this.model.children[0].children.forEach(_item => {
-                console.log(_item)
                 let edges = new THREE.EdgesGeometry(_item.geometry, 5);
-                let ls = new THREE.LineSegments( edges , new THREE.LineBasicMaterial( { color: 0xffffff } ));
+                let ls = new THREE.LineSegments( edges , new THREE.LineBasicMaterial({ color: 0xffffff }));
                 ls.position.x = _item.position.x;
                 ls.position.y = _item.position.y;
                 ls.position.z = _item.position.z;
                 ls.rotation.x = _item.rotation.x;
                 ls.rotation.y = _item.rotation.y;
                 ls.rotation.z = _item.rotation.z;
-                ls.scale.x = _item.scale.x;
-                ls.scale.y = _item.scale.y;
-                ls.scale.z = _item.scale.z;
-                _item.visible = true;
                 this.modeloLineSegment.push(ls);
-                /*
-                _item.material = new THREE.LineDashedMaterial( { 
-                    color: 0xffffff,
-                    linewidth: 1,
-                    dashSize: 3,
-	                gapSize: 1,
-                });
-                */
-                
+
+                _item.visible = false;
             });
-            /*
-            this.model.getObjectByName('EsferaCubo').visible = false;
-            this.model.getObjectByName('EsferaEsfera').visible = false;
-            this.model.getObjectByName('OctaedroEsfera').visible = false;
-            this.model.getObjectByName('IcosaedroEsfera').visible = false;
-            this.model.getObjectByName('DodecaedroEsfera').visible = false;
-            */
-            //this.playAnimation();
         }
         else {
             this.model = _model;
         }
 
-        this.modeloLineSegment.forEach(_itemLine => this.scene.add(_itemLine));
+        this.modeloLineSegment.forEach(_itemLine => { this.scene.add(_itemLine) });
+        //this.stopAnimation();
         this.scene.add(this.model);
     }
 
@@ -222,7 +180,6 @@ class Game3d {
         });
     }
 
-
     resize() {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
@@ -232,17 +189,27 @@ class Game3d {
     update(_obj) {
         let delta = this.clock.getDelta();
         let elapsedTime = this.clock.getElapsedTime();
-        /*
-        this.camera.position.x = Math.sin(this.cursor.x * Math.PI * 2) * 0.05; //this.satelite2.position.x + (this.cursor.x * 0.01);
-        this.camera.position.z = Math.cos(this.cursor.x * Math.PI * 2) * 0.05;//this.satelite2.position.y + (this.cursor.y * 0.01);
-        this.camera.position.y = (this.cursor.y * 0.05);
-        */
-        this.camera.lookAt(new THREE.Vector3(0,0,0));
-        this.particle.rotation.y = elapsedTime * 0.02;
         
+        this.lerpX.current = gsap.utils.interpolate(
+            this.lerpX.current,
+            this.lerpX.target,
+            this.lerpX.ease
+        );
+
+        this.lerpY.current = gsap.utils.interpolate(
+            this.lerpY.current,
+            this.lerpY.target,
+            this.lerpY.ease
+        );
+
+        //console.log(this.lerp);
+        this.scene.rotation.y = this.lerpX.current;
+        this.scene.rotation.x = this.lerpY.current;
+        
+    
+        this.particle.rotation.y = elapsedTime * 0.02;
 
         this.model.children[0].children.forEach((_item, _index) => {
-
             this.modeloLineSegment[_index].position.x = _item.position.x;
             this.modeloLineSegment[_index].position.y = _item.position.y;
             this.modeloLineSegment[_index].position.z = _item.position.z;
