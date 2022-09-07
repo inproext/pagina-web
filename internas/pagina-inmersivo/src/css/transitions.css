@@ -10,3 +10,15 @@ body[data-page="4"] .container-transition { background-color: #F794C4; }
 body[data-page="5"] .container-transition { background-color: #F794C4; }
 body[data-page="6"] .container-transition { background-color: #F794C4; }
 body[data-page="7"] .container-transition { background-color: #F794C4; }
+
+.image-inmersivo2a{
+    animation-name: rotation2a;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotation2a {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }

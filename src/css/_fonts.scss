@@ -7,39 +7,39 @@ p{
 }
 
 .txt-x2{
-    font-size: 6rem;
+    font-size: 5.5rem;
     font-weight: bold;
-    line-height: 5.5rem;
-    @include laptop { font-size: 5rem; line-height: 4.5rem; }
-    @include tablet { font-size: 4.5rem; line-height: 4rem; }
-    @include mobile { font-size: 2.5rem; line-height: 2.0rem; }
+    line-height: 4.5rem;
+    @include laptop { font-size: 4.7rem; line-height: 4.5rem; }
+    @include tablet { font-size: 4.3rem; line-height: 4rem; }
+    @include mobile { font-size: 2.3rem; line-height: 2.0rem; }
 }
 
 .txt-x3{
-    font-size: 4.5rem;
+    font-size: 4.2rem;
     font-weight: 600;
     line-height: 4.0rem;
-    @include laptop { font-size: 3.7rem; line-height: 3.5rem; }
-    @include tablet { font-size: 3rem; line-height: 2.5rem; }
-    @include mobile { font-size: 2rem; line-height: 1.5rem; }
+    @include laptop { font-size: 3.5rem; line-height: 3.2rem; }
+    @include tablet { font-size: 2.8rem; line-height: 2.5rem; }
+    @include mobile { font-size: 1.8rem; line-height: 1.5rem; }
 }
 
 .txt-x4{ 
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 600;
     line-height: 2.0rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
-    @include laptop { font-size: 2rem; line-height: 1.75rem; }
-    @include tablet { font-size: 1.7rem; line-height: 1.5rem; }
-    @include mobile { font-size: 1.5rem; line-height: 1.25rem; }
+    @include laptop { font-size: 1.8rem; line-height: 1.5rem; }
+    @include tablet { font-size: 1.5rem; line-height: 1.3rem; }
+    @include mobile { font-size: 1.3rem; line-height: 1rem; }
 }
 
 .txt-x5{ 
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 100;
     line-height: 2.0rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
-    @include mobile { font-size: 2rem; line-height: 1.725rem; }
-    @include tablet { font-size: 1.7rem; line-height: 1.5rem; }
-    @include mobile { font-size: 1.2rem; line-height: 0.725rem; }
+    @include laptop { font-size: 1.8rem; line-height: 1.5rem; }
+    @include tablet { font-size: 1.5rem; line-height: 1.3rem; }
+    @include mobile { font-size: 1.3rem; line-height: 1rem; }
 }

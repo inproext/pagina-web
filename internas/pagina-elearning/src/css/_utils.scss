@@ -28,6 +28,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 0;
     video {
         position: relative;
         top: 0;
@@ -55,6 +56,7 @@
     }
 
     &.active{
+        z-index: 1;
         span { opacity: 0; }
         video { 
             clip-path: circle(100vw at 85% center);

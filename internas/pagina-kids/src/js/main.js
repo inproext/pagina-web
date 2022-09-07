@@ -43,6 +43,7 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'bg-intro', src: 'dist/img/bg-intro.png' },
     { id: 'kids_1a', src: 'dist/img/kids_1a.png' },
     { id: 'kids_1b', src: 'dist/img/kids_1b.png' },
     { id: 'kids_2a', src: 'dist/img/kids_2a.png' },

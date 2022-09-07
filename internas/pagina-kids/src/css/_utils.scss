@@ -141,3 +141,28 @@
         left: 0%;
     }
 }
+
+.list-bullet {
+    width: 30px;
+    height: 90px;
+    background-color: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    right: 5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li.bullet {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        border-radius: 100%;
+        margin: 4px 0;
+        &.active { 
+            background-color: #fff;
+        }
+    }
+}

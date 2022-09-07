@@ -10,3 +10,13 @@ body[data-page="4"] .container-transition { background-color: #F2CC79; }
 body[data-page="5"] .container-transition { background-color: #F2CC79; }
 body[data-page="6"] .container-transition { background-color: #F2CC79; }
 body[data-page="7"] .container-transition { background-color: #F2CC79; }
+
+.bg-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

@@ -63,7 +63,7 @@
 .image-inmersivo3a{
     position: absolute;
     width: auto;
-    height: 25vh;
+    height: 20vh;
     left: 10%;
     @include tablet { left: 7%;}
     @include mobile { display: none;}
@@ -72,31 +72,12 @@
 .image-inmersivo3b{
     position: absolute;
     width: auto;
-    height: 25vh;
+    height: 20vh;
     right: 10%;
     @include tablet { right: 7%;}
     @include mobile { display: none; }
 }
 
-.image-inmersivo3c{
-    position: absolute;
-    width: auto;
-    height: 80vh;
-    left: 25%;
-    bottom: -40px;
-    @include tablet { left: 15%;}
-    @include mobile { width: auto; height: 70%; left: -20%; }
-}
-
-.image-inmersivo3d{
-    position: absolute;
-    width: auto;
-    height: 80vh;
-    right: 30%;
-    bottom: -40px;
-    @include tablet { left: 15%;}
-    @include mobile { width: auto; height: 70%; left: -20%; }
-}
 
 .txt3a{
     position: absolute;
@@ -140,9 +121,115 @@
     width: 30%;
     @include mobile { width: 60%; top: 14%; }
 }
-
 //page4
-.image-inmersivo4a{
+
+.container-comparation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .slide1 {
+        //clip-path: polygon(xxx 0, 100% 0, 100% 100%, xxx 100%); 
+        //clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        clip-path: inset(0 0 0 50%);
+        background-color: #A3CAC9;
+    }
+
+    .slide2 {
+        //clip-path: polygon(0 0, xxx 0, xxx 100%, 0 100%);  
+        //clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        clip-path: inset(0 50% 0 0);
+        background-color: #FDEF37;
+    }
+    
+    .dot-slider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        background-color: #00000080;
+        border-radius: 100%;
+        margin: auto -35px;
+        left: 50%;
+        border: 10px solid #0000000f;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        transition: 0.2s transform;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }    
+    &.active {
+        cursor: none;
+        .dot-slider {
+            transform: scale(0.7);
+            opacity: 0.75;
+        }
+    }
+}
+
+.image-inmersivo4a {
+    position: absolute;
+    width: auto;
+    height: 20vh;
+    top: 43%;
+    right: 10%;
+    z-index: 1;
+    @include tablet { right: 7%;}
+    @include mobile { display: none;}
+}
+
+.image-inmersivo4b {
+    position: absolute;
+    width: auto;
+    height: 20vh;
+    top: 43%;
+    left: 10%;
+    z-index: 1;
+    @include tablet { left: 7%;}
+    @include mobile { display: none;}
+}
+
+.image-inmersivo4c{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    left: 15%;
+    bottom: -40px;
+    @include tablet { left: 15%;}
+    @include mobile { width: auto; height: 70%; left: -20%; }
+}
+
+.image-inmersivo4d{
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    right: 37%;
+    bottom: -40px;
+    @include tablet { left: 15%;}
+    @include mobile { width: auto; height: 70%; left: -20%; }
+}
+
+
+//page5
+.image-inmersivo5a{
     position: absolute;
     width: auto;
     height: 95vh;
@@ -150,7 +237,7 @@
     @include mobile { width: auto; height: 55%; top: 20%; }
 }
 
-.txt4a{
+.txt5a{
     position: absolute;
     width: 30%;
     left: 7%;
@@ -160,7 +247,7 @@
     @include mobile { top: 5%; width: 86%; text-align: center; }
 }
 
-.txt4b{
+.txt5b{
     position: absolute;
     width: 30%;
     right: 7%;

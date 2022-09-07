@@ -28,6 +28,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 0;
     video {
         position: relative;
         top: 0;
@@ -51,10 +52,12 @@
         font-weight: 800;
         text-decoration: underline;
         cursor: pointer;
+        text-shadow: 0px 0px 4px #000;
         z-index: 1;
     }
 
     &.active{
+        z-index: 1;
         span { opacity: 0; }
         video { 
             clip-path: circle(100vw at 85% center);
@@ -139,5 +142,30 @@
         object-fit: cover;
         bottom: 0;
         left: 0%;
+    }
+}
+
+.list-bullet {
+    width: 30px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    left: 5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li.bullet {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        border-radius: 100%;
+        margin: 4px 0;
+        &.active { 
+            background-color: #fff;
+        }
     }
 }

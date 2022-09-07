@@ -10,3 +10,24 @@ body[data-page="4"] .container-transition { background-color: #82C6D1; }
 body[data-page="5"] .container-transition { background-color: #82C6D1; }
 body[data-page="6"] .container-transition { background-color: #82C6D1; }
 body[data-page="7"] .container-transition { background-color: #82C6D1; }
+
+.control-bg {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 1;
+    transition: 0.2s all;
+}
+
+body[data-page="0"] .container-transition .control-bg { opacity: 1; }
+body[data-page="1"] .container-transition .control-bg { opacity: 0; }
+body[data-page="2"] .container-transition .control-bg { opacity: 0; }
+body[data-page="3"] .container-transition .control-bg { opacity: 0; }
+body[data-page="4"] .container-transition .control-bg { opacity: 0; }
+body[data-page="5"] .container-transition .control-bg { opacity: 0; }
+body[data-page="6"] .container-transition .control-bg { opacity: 0; }
+body[data-page="7"] .container-transition .control-bg { opacity: 0; }

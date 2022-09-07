@@ -2,7 +2,7 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const config = {
-    mode: 'development',
+    mode: 'production',
     watch: true,
     watchOptions: {
         aggregateTimeout: 600,
@@ -19,7 +19,7 @@ const config = {
               test: /\.(c|sa|sc)ss$/i,
               use: [
                 // Creates `style` nodes from JS strings
-                process.env.NODE_ENV !== "production" ? "style-loader" : MiniCSSExtractPlugin.loader,
+                MiniCSSExtractPlugin.loader,
                 // Translates CSS into CommonJS
                 "css-loader",
                 "sass-loader",

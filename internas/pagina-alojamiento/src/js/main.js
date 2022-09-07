@@ -39,6 +39,7 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'bg-intro', src: 'dist/img/bg-intro.png' },
     { id: 'alojamiento_1a', src: 'dist/img/alojamiento_1a.png' },
     { id: 'alojamiento_2a', src: 'dist/img/alojamiento_2a.png' },
     { id: 'alojamiento_2b', src: 'dist/img/alojamiento_2b.png' },

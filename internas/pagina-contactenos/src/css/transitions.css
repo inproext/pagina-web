@@ -1,0 +1,5 @@
+.container-transition {
+    transition: 0.6s all;
+}
+
+body[data-page="0"] .container-transition { background: linear-gradient(#FAB6FC 0%, #95D4CC 100%); }

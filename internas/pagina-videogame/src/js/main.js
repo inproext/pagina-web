@@ -27,20 +27,23 @@ let cameraPoints = [
     { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#E7CDF9', speed: 2000 },
     { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#E7CDF9', speed: 1000 },  
     { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#E7CDF9',  speed: 1000 },
-    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 }
+    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 },
+    { id: 5, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 }
 ];
 
 preload.addContents([
 	{ id: '1', src: 'dist/html/1.html' },
     { id: '2', src: 'dist/html/2.html' },
     { id: '3', src: 'dist/html/3.html' },
-    { id: '4', src: 'dist/html/4.html' }
+    { id: '4', src: 'dist/html/4.html' },
+    { id: '5', src: 'dist/html/5.html' }
 ]);
 
 preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'control', src: 'dist/img/control.png' },
     { id: 'videogame_1a', src: 'dist/img/videogame_1a.png' },
     { id: 'videogame_1b', src: 'dist/img/videogame_1b.png' },
     { id: 'videogame_1c', src: 'dist/img/videogame_1c.png' },

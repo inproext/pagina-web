@@ -146,25 +146,13 @@ class Game3d {
             this.playAnimation();
             this.model.children[0].scale.set(1,1,1);
             this.model.children[0].children.forEach(_item => {
-                let edges = new THREE.EdgesGeometry(_item.geometry, 5);
-                let ls = new THREE.LineSegments( edges , new THREE.LineBasicMaterial({ color: 0xffffff }));
-                ls.position.x = _item.position.x;
-                ls.position.y = _item.position.y;
-                ls.position.z = _item.position.z;
-                ls.rotation.x = _item.rotation.x;
-                ls.rotation.y = _item.rotation.y;
-                ls.rotation.z = _item.rotation.z;
-                this.modeloLineSegment.push(ls);
-
-                _item.visible = false;
+                _item.visible = true;
             });
         }
         else {
             this.model = _model;
         }
 
-        this.modeloLineSegment.forEach(_itemLine => { this.scene.add(_itemLine) });
-        //this.stopAnimation();
         this.scene.add(this.model);
     }
 
@@ -202,25 +190,10 @@ class Game3d {
             this.lerpY.ease
         );
 
-        //console.log(this.lerp);
         this.scene.rotation.y = this.lerpX.current;
         this.scene.rotation.x = this.lerpY.current;
         
-    
         this.particle.rotation.y = elapsedTime * 0.02;
-
-        this.model.children[0].children.forEach((_item, _index) => {
-            this.modeloLineSegment[_index].position.x = _item.position.x;
-            this.modeloLineSegment[_index].position.y = _item.position.y;
-            this.modeloLineSegment[_index].position.z = _item.position.z;
-            this.modeloLineSegment[_index].rotation.x = _item.rotation.x;
-            this.modeloLineSegment[_index].rotation.y = _item.rotation.y;
-            this.modeloLineSegment[_index].rotation.z = _item.rotation.z;
-            this.modeloLineSegment[_index].scale.x = _item.scale.x;
-            this.modeloLineSegment[_index].scale.y = _item.scale.y;
-            this.modeloLineSegment[_index].scale.z = _item.scale.z;
-        });
-
         this.mixer.update(delta);
         this.renderer.render(this.scene,this.camera);
     }
