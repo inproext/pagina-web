@@ -148,7 +148,6 @@
 .list-bullet {
     width: 30px;
     height: 80px;
-    background-color: rgba(0, 0, 0, 0.15);
     position: absolute;
     left: 5%;
     border-radius: 10px;
@@ -156,13 +155,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     li.bullet {
         display: block;
-        width: 10px;
-        height: 10px;
+        width: 30px;
+        height: 2px;
         border: 1px solid #fff;
-        border-radius: 100%;
+        border-radius: 10px;
         margin: 4px 0;
         &.active { 
             background-color: #fff;

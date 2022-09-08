@@ -83,6 +83,7 @@ preload.load(function (_progress) {
 
 
 function init() {
+    drawPageBullet();
     setEvents();
     if(activeModel)
     {
@@ -104,6 +105,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
         utils.loadImages();
@@ -113,6 +115,26 @@ function fn_load(){
     else {
         scrollDirection = "keep";
     }
+}
+
+function drawPageBullet() {
+    let html = '';
+    let layerPageBullets = document.getElementById('LayerPageBullets');
+    cameraPoints.forEach((_el, _idx) => {
+        if(_idx == 0) {
+            html += '<div class="bullet btn-page active" data-page="'+_idx+'"> <div class="dot"></div></div>';
+        }
+        else {
+            html += '<div class="bullet btn-page" data-page="'+_idx+'"> <div class="dot"></div></div>';
+        }
+    });
+    layerPageBullets.innerHTML = html;
+}
+
+function changeBulletPage (_pos) {
+    let bulletsPage = document.querySelectorAll('#LayerPageBullets .bullet');
+    [...bulletsPage].forEach(_el => { _el.classList.remove('active') });
+    [...bulletsPage][_pos].classList.add('active');
 }
 
 function setEvents() {
@@ -177,19 +199,13 @@ function setEvents() {
         menuList.classList.add('active');
     });
 
-    menuItem.forEach((_item) => {
-        /*
+    document.querySelectorAll('.btn-page').forEach((_item) => {
         _item.addEventListener('click', function() {
-            let pos = parseInt(this.getAttribute('data-html'));
+            let pos = parseInt(this.getAttribute('data-page'));
             currentPosition = pos;
-            menuList.classList.remove('active');
-            deactiveBullets();
-            this.classList.add('active');
             fn_load();
         });
-        */
     });
-
 
     window.addEventListener('resize', function() {
         if(activeModel) game3d.resize();
@@ -199,6 +215,17 @@ function setEvents() {
         console.log('eventomoviemiento');
     });
     let isDotSlider = false;
+    
+    window.addEventListener('pointerdown', (_ev) => {
+        let dotSlider = _ev.target;
+        
+        if(dotSlider.classList.contains('dot-slider')) {
+            dotSlider.parentElement.classList.add('active');
+            isDotSlider = true;
+
+        }
+    });
+    
     window.addEventListener('mousedown', (_ev) => {
         let dotSlider = _ev.target;
         
@@ -209,6 +236,14 @@ function setEvents() {
         }
     });
 
+    window.addEventListener('pointerup', (_ev) => {
+        let dotSlider = document.querySelector('.dot-slider');
+        if(dotSlider !== null) {
+            dotSlider.parentElement.classList.remove('active');
+        }
+        isDotSlider = false;
+    });
+
     window.addEventListener('mouseup', (_ev) => {
         let dotSlider = document.querySelector('.dot-slider');
         if(dotSlider !== null) {
@@ -217,12 +252,21 @@ function setEvents() {
         isDotSlider = false;
     });
 
-    document.body.addEventListener('mousemove', (_ev) => {
+    window.addEventListener('pointermove', (_ev) => {
+        if(isDotSlider) {
+            let scrollPosX = (_ev.clientX / window.innerWidth) * 100;
+            let scrollPosX2 = (100 - scrollPosX);
+            document.querySelector('.dot-slider').style.left = scrollPosX + "%";
+            document.querySelector('.slide1').style.clipPath = "inset(0 0 0 "+scrollPosX+"%)";
+            document.querySelector('.slide2').style.clipPath = "inset(0 "+scrollPosX2+"% 0 0)";
+        }
+    });
+
+    window.addEventListener('mousemove', (_ev) => {
         if(isDotSlider) {
             let scrollPosX = (_ev.clientX / window.innerWidth) * 100;
             let scrollPosX2 = (100 - scrollPosX);
 
-            console.log(document.querySelector('.slide1').style.clipPath);
             document.querySelector('.dot-slider').style.left = scrollPosX + "%";
             document.querySelector('.slide1').style.clipPath = "inset(0 0 0 "+scrollPosX+"%)";
             document.querySelector('.slide2').style.clipPath = "inset(0 "+scrollPosX2+"% 0 0)";
