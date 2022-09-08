@@ -8,13 +8,11 @@
     height: auto;
     bottom: 0vh;
     left: 0%;
-    @include tablet { width: 520px; height: auto; bottom: 7%; }
-    @include mobile { width: 100%;  height: auto; bottom: 25%; left: -11%;}
+    @include mobile { width: 100%;  height: auto; bottom: 25%; }
 }
 
 .txt1a{
     position: absolute;
     top: 10%;
     text-align: right;
-    @include mobile { top: 75%; }
 }

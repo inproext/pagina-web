@@ -68,6 +68,30 @@
     @include mobile { display: none;}
 }
 
+.wrapper-video {
+    video { 
+        clip-path: circle(90px at 10% 50%); 
+        @include mobile { 
+            clip-path: circle(60px at 50% 50%);
+            display: none;
+        }
+    }
+
+    &.active {
+        video { 
+            @include mobile { 
+                clip-path: circle(120vw at 50% 45%) !important; 
+            }
+        }
+    }
+    span { 
+        left: 15%;
+        top: 52%;
+        text-shadow: 0px 0px 5px black;
+        @include mobile { left: 10%; top: 50%; display: none; } 
+    }
+}
+
 //page 3
 .image-videogame3a{
     position: absolute;
@@ -180,26 +204,3 @@
     @include tablet { display: none;}
     @include mobile { display: block; top: 61%; width: 80%; text-align: center;}
 }
-
-.wrapper-video {
-    video { 
-        clip-path: circle(175px at 50% 45%); 
-        @include mobile { 
-            clip-path: circle(60px at 50% 50%); 
-        }
-    }
-
-    &.active {
-        video { 
-            @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
-            }
-        }
-    }
-    span { 
-        left: 60%;
-        top: 44%;
-        @include mobile { left: 50%; top: 50%; } 
-    }
-}
-

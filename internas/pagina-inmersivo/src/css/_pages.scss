@@ -59,6 +59,30 @@
     @include mobile { bottom: 12%; width: 85%; right: 6%;}
 }
 
+.wrapper-video {
+    video { 
+        clip-path: circle(125px at 50% 45%); 
+        @include mobile { 
+            clip-path: circle(60px at 50% 50%); 
+        }
+    }
+
+    &.active {
+        video { 
+            @include mobile { 
+                clip-path: circle(120vw at 50% 45%) !important; 
+            }
+        }
+    }
+    span { 
+        left: 58%;
+        top: 46%;
+        text-shadow: 0px 0px 5px black;
+        @include mobile { left: 50%; top: 50%; } 
+    }
+}
+
+
 //page 3
 .image-inmersivo3a{
     position: absolute;
@@ -257,25 +281,4 @@
     @include mobile { top: 73%; width: 87%; text-align: center; }
 }
 
-.wrapper-video {
-    video { 
-        clip-path: circle(175px at 50% 45%); 
-        @include mobile { 
-            clip-path: circle(60px at 50% 50%); 
-        }
-    }
-
-    &.active {
-        video { 
-            @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
-            }
-        }
-    }
-    span { 
-        left: 60%;
-        top: 44%;
-        @include mobile { left: 50%; top: 50%; } 
-    }
-}
 

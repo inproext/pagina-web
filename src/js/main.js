@@ -124,6 +124,7 @@ function fn_load(){
         //layerMain.style.display = 'none';
         if(activeModel) game3d.moveCamera(cameraPoints[currentPosition]);
         layerContent.innerHTML = Library.contents[currentPosition+1];
+        checkTranslation();
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
@@ -229,6 +230,37 @@ function setEvents() {
         });
     });
 
+    document.querySelectorAll('.btn-translation').forEach((_item) => {
+        _item.addEventListener('click', function() {
+            let hash = this.hash;
+            document.querySelectorAll('.container-menu a').forEach((_el) => {
+                _el.hash = hash;
+            });
+
+            if(hash == '#en'){
+                document.querySelectorAll('.txt-en').forEach((_el) => {
+                    _el.classList.remove('selected-es');
+                    _el.classList.add('selected-en');
+                });
+        
+                document.querySelectorAll('.txt-es').forEach((_el) => {
+                    _el.classList.remove('selected-es');
+                    _el.classList.add('selected-en');
+                });
+            }
+            else {
+                document.querySelectorAll('.txt-en').forEach((_el) => {
+                    _el.classList.remove('selected-en');
+                    _el.classList.add('selected-es');
+                });
+        
+                document.querySelectorAll('.txt-es').forEach((_el) => {
+                    _el.classList.remove('selected-en');
+                    _el.classList.add('selected-es');
+                });
+            }
+        });
+    });
 
     window.addEventListener('resize', function() {
         if(activeModel) game3d.resize();
@@ -393,6 +425,37 @@ function checkParallax() {
     let parallaxScene = document.querySelector('.parallax-scene');
     if(parallaxScene !== null) {
         new Parallax(parallaxScene);
+    }
+}
+
+function checkTranslation() {
+
+    let hash = window.location.hash;
+    document.querySelectorAll('.container-menu a').forEach((_el) => {
+        _el.hash = hash;
+    });
+
+    if(window.location.hash == '#en'){
+        document.querySelectorAll('.txt-en').forEach((_el) => {
+            _el.classList.remove('selected-es');
+            _el.classList.add('selected-en');
+        });
+
+        document.querySelectorAll('.txt-es').forEach((_el) => {
+            _el.classList.remove('selected-es');
+            _el.classList.add('selected-en');
+        });
+    }
+    else {
+        document.querySelectorAll('.txt-en').forEach((_el) => {
+            _el.classList.remove('selected-en');
+            _el.classList.add('selected-es');
+        });
+
+        document.querySelectorAll('.txt-es').forEach((_el) => {
+            _el.classList.remove('selected-en');
+            _el.classList.add('selected-es');
+        });
     }
 }
 

@@ -58,6 +58,7 @@
     width: 270px;
     height: 70px;
     cursor: pointer;
+    @include mobile { width: 120px; height: 31px; bottom: 25%; right: 36%; }
     p{
         position: absolute;
         bottom: -40px;
@@ -65,6 +66,7 @@
         width: 100%;
         font-size: 1.2rem;
         font-weight: 500;
+        @include mobile { font-size: 1rem; }
     }
 
     .image-elearning3b{
@@ -90,6 +92,7 @@
         top: 27%;
         left: -48%;
         display: none;
+        @include mobile { left: -60%; }
     }
     
     .txt3c{
@@ -97,6 +100,7 @@
         top: 27%;
         right: -48%;
         display: none;
+        @include mobile { right: -74%; }
     }
 
     &.active {
@@ -160,8 +164,9 @@
         }
     }
     span { 
-        left: 60%;
+        left: 57%;
         top: 44%;
+        text-shadow: 0px 0px 5px black;
         @include mobile { left: 50%; top: 50%; } 
     }
 }

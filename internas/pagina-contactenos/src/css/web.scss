@@ -108,7 +108,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1001;
     .brand {
         width: 240px;
         display: block;
@@ -139,7 +139,7 @@ body{
             margin: 0 1rem;
             padding: 0;
             @include laptop { margin: 0 0.5rem; }
-            @include tablet { margin: 0 0.5rem; }
+            @include tablet { margin: 0 0.5rem; }@include mobile { padding: 5px 0; }
             a.menu-item{
                 color: #fff;
                 font-family: 'Alegreya Sans', sans-serif;
@@ -162,6 +162,23 @@ body{
             }
         }
         &.active { top: 0; }
+    }
+}
+
+.menu-translation {
+    position: absolute;
+    right: 0;
+    top: 90px;
+    font-size: 1.0rem;
+    margin: 0 10px;
+    z-index: 1000;
+    a{
+        background-color: #00000021;
+        color: #fff;
+        font-weight: 400;
+        padding: 3px 6px;
+        text-decoration: none;
+        text-transform: uppercase;
     }
 }
 

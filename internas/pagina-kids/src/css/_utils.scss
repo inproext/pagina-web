@@ -167,9 +167,11 @@
 }
 
 .txt-es {
-    display: none;
+    &.selected-en { display: none; }
+    &.selected-es { display: block; }
 }
 
 .txt-en{
-    display: block;
+    &.selected-en { display: block; }
+    &.selected-es { display: none; }
 }
