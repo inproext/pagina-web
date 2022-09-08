@@ -83,6 +83,7 @@ preload.load(function (_progress) {
 
 
 function init() {
+    drawPageBullet();
     setEvents();
     if(activeModel)
     {
@@ -104,6 +105,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
         utils.loadImages();
@@ -113,6 +115,26 @@ function fn_load(){
     else {
         scrollDirection = "keep";
     }
+}
+
+function drawPageBullet() {
+    let html = '';
+    let layerPageBullets = document.getElementById('LayerPageBullets');
+    cameraPoints.forEach((_el, _idx) => {
+        if(_idx == 0) {
+            html += '<div class="bullet btn-page active" data-page="'+_idx+'"> <div class="dot"></div></div>';
+        }
+        else {
+            html += '<div class="bullet btn-page" data-page="'+_idx+'"> <div class="dot"></div></div>';
+        }
+    });
+    layerPageBullets.innerHTML = html;
+}
+
+function changeBulletPage (_pos) {
+    let bulletsPage = document.querySelectorAll('#LayerPageBullets .bullet');
+    [...bulletsPage].forEach(_el => { _el.classList.remove('active') });
+    [...bulletsPage][_pos].classList.add('active');
 }
 
 function setEvents() {
@@ -177,17 +199,12 @@ function setEvents() {
         menuList.classList.add('active');
     });
 
-    menuItem.forEach((_item) => {
-        /*
+    document.querySelectorAll('.btn-page').forEach((_item) => {
         _item.addEventListener('click', function() {
-            let pos = parseInt(this.getAttribute('data-html'));
+            let pos = parseInt(this.getAttribute('data-page'));
             currentPosition = pos;
-            menuList.classList.remove('active');
-            deactiveBullets();
-            this.classList.add('active');
             fn_load();
-        });
-        */
+        })
     });
 
 

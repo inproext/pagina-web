@@ -160,6 +160,75 @@ body{
     }
 }
 
+.container-page-bullets {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    width: 40px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include mobile { transform: scale(0.75); right: 0px; }
+    .bullet {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin: 5px 0;
+        border: 2px solid rgba(255, 255, 255, 0.65);
+        border-radius: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        .dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #fff;
+            border-radius: 100%;
+            display: none;
+        }
+        &.active {
+            .dot{ display: block; }
+        }
+
+        &:first-child {
+            &::before{
+                display: none;
+            }
+        }
+
+        &:last-child {
+            &::after{
+                display: none;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            width: 2px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            width: 2px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+    }
+}
+
 .scroll-bar {
     position: fixed;
     bottom: 0%;
