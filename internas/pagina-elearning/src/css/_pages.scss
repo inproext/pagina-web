@@ -13,10 +13,8 @@
 
 .image-elearning1b{
     position: absolute;
-    width: 754px;
+    width: 660px;
     height: auto;
-    left: 12.31%;
-    top: 20%; 
     @include tablet { width: 500px; height: auto; }
     @include mobile { width: 90%;}
 }
@@ -127,9 +125,9 @@
     top: 10%;
     left: 10%;
     text-align: right;
-    @include laptop { top: 14%; left: 10%; }
-    @include tablet { top: 7%; left: 7%;}
-    @include mobile { left: auto; text-align: center; }
+    @include laptop { top: 14%; left: 4%; }
+    @include tablet { top: 8%; left: 7%;}
+    @include mobile { left: auto; text-align: center; top: 4%; }
 }
 
 .txt4b {

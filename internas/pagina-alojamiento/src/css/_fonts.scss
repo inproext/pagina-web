@@ -12,7 +12,7 @@ p{
     line-height: 5.5rem;
     @include laptop { font-size: 5rem; line-height: 4.5rem; }
     @include tablet { font-size: 4.5rem; line-height: 4rem; }
-    @include mobile { font-size: 2.5rem; line-height: 2.0rem; }
+    @include mobile { font-size: 2.5rem; line-height: 2.7rem; }
 }
 
 .txt-x3{
@@ -27,11 +27,11 @@ p{
 .txt-x4{ 
     font-size: 2.5rem;
     font-weight: 600;
-    line-height: 2.0rem;
+    line-height: 2.7rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
-    @include laptop { font-size: 2rem; line-height: 1.75rem; }
-    @include tablet { font-size: 1.7rem; line-height: 1.5rem; }
-    @include mobile { font-size: 1.5rem; line-height: 1.5rem; }
+    @include laptop { font-size: 2rem; line-height: 2.2rem; }
+    @include tablet { font-size: 1.7rem; line-height: 1.9rem; }
+    @include mobile { font-size: 1.5rem; line-height: 1.7rem; }
 }
 
 .txt-x5{ 
@@ -41,5 +41,5 @@ p{
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
     @include mobile { font-size: 2rem; line-height: 1.725rem; }
     @include tablet { font-size: 1.7rem; line-height: 1.5rem; }
-    @include mobile { font-size: 1.5rem; line-height: 1.5rem; }
+    @include mobile { font-size: 1.5rem; line-height: 1.25rem; }
 }

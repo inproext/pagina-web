@@ -58,14 +58,13 @@
     width: 30%;
     text-align: left;
     @include tablet { right: 5%; }
-    @include mobile { width: 80%; top: 70%; left: 11%; }
+    @include mobile { width: 80%; top: 70%; left: 11%; text-align: center; }
 }
 
 .txt2c{
     position: absolute;
     bottom: 11%;
     text-align: center;
-    @include tablet { left: 5%; }
     @include mobile { display: none;}
 }
 
@@ -92,7 +91,7 @@
     top: 20%;
     text-align: left;
     @include tablet { right: 5%; right: 7%; }
-    @include mobile { width: 80%; top: 60%; text-align: left;}
+    @include mobile { width: 80%; top: 55%; text-align: left;}
 }
 
 .txt3b{
@@ -111,7 +110,7 @@
     top: 49%;
     left: 7%;
     text-align: right;
-    @include mobile { width: 80%; top: 60%; text-align: left;}
+    @include mobile { width: 80%; top: 55%; text-align: left;}
 }
 
 
@@ -148,22 +147,22 @@
 
 .txt4a{
     position: absolute;
-    width: 35%;
+    width: 30%;
     top: 20%;
     left: 7%;
     text-align: left;
     @include tablet { top: 20%; left: 7%;}
-    @include mobile { width: 80%; text-align: center; bottom: 15%; right: 10%; }
+    @include mobile { width: 80%; text-align: center; top: 72%; right: 10%; }
 }
 
 .txt4b {
     position: absolute;
-    width: 60%;
+    width: 30%;
     top: 20%;
-    left: 7%;
-    text-align: center;
+    right: 7%;
+    text-align: left;
     @include tablet { top: 20%; left: 7%;}
-    @include mobile { width: 80%; text-align: center; bottom: 15%; right: 10%; }
+    @include mobile { width: 80%; text-align: center; top: 70%; right: 10%; }
 }
 
 .txt4c {

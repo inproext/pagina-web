@@ -18,7 +18,7 @@
     top: 45%;
     text-align: right;
     @include tablet { right: 5%; }
-    @include mobile { top: 75%; }
+    @include mobile { top: 70%; }
 }
 
 // Page 2
@@ -56,18 +56,18 @@
     width: 30%;
     top: 40%;
     left: 3%;
-    height: 30vh;
+    height: 22vh;
     object-fit: contain;
-    @include mobile { top: 25%; width: 50%; left: 0%; height: 25vh;}
+    @include mobile { top: 25%; width: 50%; left: 0%; height: 18vh;}
 }
 
 .image-alojamiento3b{
     position: absolute;
     width: 30%;
     top: 40%;
-    height: 30vh;
+    height: 22vh;
     object-fit: contain;
-    @include mobile { top: 25%; width: 50%; right: 0%; height: 25vh;}
+    @include mobile { top: 25%; width: 50%; right: 0%; height: 18vh;}
 }
 
 
@@ -76,9 +76,9 @@
     width: 30%;
     top: 40%;
     right: 3%;
-    height: 30vh;
+    height: 22vh;
     object-fit: contain;
-    @include mobile { top: 57%; width: 60%; left: 20%;}
+    @include mobile { top: 60%; width: 60%; left: 20%; height: 18vh;}
 }
 
 .txt3a{
@@ -86,4 +86,27 @@
     top: 17%;
     text-align: center;
     @include mobile { width: 85%; top: 7%; }
+}
+
+.txt3b{
+    position: absolute;
+    top: 68%;
+    left: 10%;
+    text-align: center;
+    @include mobile { top: 49%; left: 5%; }
+}
+
+.txt3c{
+    position: absolute;
+    top: 68%;
+    right: 12%;
+    text-align: center;
+    @include mobile { top: 49%; right: 5%; }
+}
+
+.txt3d{
+    position: absolute;
+    top: 68%;
+    text-align: center;
+    @include mobile { top: 84%; }
 }

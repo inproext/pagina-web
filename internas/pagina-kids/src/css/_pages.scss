@@ -96,7 +96,7 @@
     top: 49%;
     text-align: right;
     @include tablet { left: 3%; }
-    @include mobile { top: 47%; width: 80%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: -5%;}
+    @include mobile { top: 47%; width: 69%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: 0%;}
 }
 
 .txt4b{
