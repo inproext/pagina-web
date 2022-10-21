@@ -49,6 +49,9 @@ preload.addImages([
     { id: 'kids_2a', src: 'dist/img/kids_2a.png' },
     { id: 'kids_3a', src: 'dist/img/kids_3a.png' },
     { id: 'kids_4a', src: 'dist/img/kids_4a.png' },
+    { id: 'kids_i4b', src: 'dist/img/kids_i4b.png' },
+    { id: 'kids_i4c', src: 'dist/img/kids_i4c.png' },
+    { id: 'kids_i4d', src: 'dist/img/kids_i4d.png' },
     { id: 'kids_5a', src: 'dist/img/kids_5a.png' },
     { id: 'kids_5b', src: 'dist/img/kids_5b.png' }
 ]);

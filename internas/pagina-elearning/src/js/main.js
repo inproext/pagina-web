@@ -27,14 +27,20 @@ let cameraPoints = [
     { id: 1, satelite: 'dodecaedro_centro2', geometry: 'dodecaedro_centro2', bgColor: '#E7CDF9', speed: 2000 },
     { id: 2, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#E7CDF9', speed: 1000 },  
     { id: 3, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#E7CDF9',  speed: 1000 },
-    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 }
+    { id: 4, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 },
+    { id: 5, satelite: 'EsferaCubo', geometry: 'cubo', bgColor: '#E7CDF9', speed: 1000 },  
+    { id: 6, satelite: 'EsferaEsfera', geometry: 'esfera', bgColor: '#E7CDF9',  speed: 1000 },
+    { id: 7, satelite: 'OctaedroEsfera', geometry: 'octaedro', bgColor: '#E7CDF9', speed: 1000 }
 ];
 
 preload.addContents([
 	{ id: '1', src: 'dist/html/1.html' },
     { id: '2', src: 'dist/html/2.html' },
     { id: '3', src: 'dist/html/3.html' },
-    { id: '4', src: 'dist/html/4.html' }
+    { id: '4', src: 'dist/html/4.html' },
+    { id: '5', src: 'dist/html/5.html' },
+    { id: '6', src: 'dist/html/6.html' },
+    { id: '7', src: 'dist/html/7.html' }
 ]);
 
 preload.addImages([
@@ -46,7 +52,10 @@ preload.addImages([
     { id: 'elearning_2a', src: 'dist/img/elearning_2a.png' },
     { id: 'elearning_3a', src: 'dist/img/elearning_3a.png' },
     { id: 'elearning_3b', src: 'dist/img/elearning_3b.png' },
-    { id: 'elearning_3c', src: 'dist/img/elearning_3c.png' }
+    { id: 'elearning_3c', src: 'dist/img/elearning_3c.png' },
+    { id: 'elearning_4a', src: 'dist/img/elearning_4a.png' },
+    { id: 'elearning_5a', src: 'dist/img/elearning_5a.png' },
+    { id: 'elearning_6a', src: 'dist/img/elearning_6a.png' },
 ]);
 
 // preload.addModels([

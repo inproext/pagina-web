@@ -1,6 +1,10 @@
 function showAndHide(_show, _hide) {
-    document.querySelector(_show).classList.add('active');
-    document.querySelector(_hide).classList.remove('active');
+    if(_show != null) {
+        document.querySelector(_show).classList.add('active');
+    }
+    if(_hide != null) {
+        document.querySelector(_hide).classList.remove('active');
+    }
 }
 
 function addActive(_element) {

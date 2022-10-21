@@ -122,9 +122,83 @@
     @include tablet { left: 12%; top: 27%;}
     @include mobile { right: 10%; top: 25%; }
 }
-
 //page4
+
+.image-elearning4a{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    left: 0;
+    @include mobile{ width: 100%; left: 0%; }
+}
+
 .txt4a{
+    position: absolute;
+    top: 7%;
+    left: 55%;
+    text-align: center;
+    @include mobile { width: 100%; left: 0; }
+}
+
+.txt4b{
+    position: absolute;
+    top: 65%;
+    left: 55%;
+    @include mobile{ width: 80%; top: 80%; left: 33%;}
+}
+
+//page5
+
+.image-elearning5a{
+    position: absolute;
+    width: 40%;
+    height: auto;
+    left: 30%;
+    @include mobile{ width: 100%; left: 0%; }
+}
+
+.txt5a{
+    position: absolute;
+    top: 7%;
+    left: 9%;
+    text-align: center;
+    @include mobile { width: 100%; left: 0; }
+}
+
+.txt5b{
+    position: absolute;
+    top: 73%;
+    left: 65%;
+    @include mobile{ width: 80%; top: 80%; left: 33%;}
+}
+
+//page6
+
+.image-elearning6a{
+    position: absolute;
+    width: 104%;
+    height: 100%;
+    left: -2%;
+    top: 0;
+    object-fit: cover;
+}
+
+.txt6a{
+    position: absolute;
+    top: 10%;
+    right: 8%;
+    text-align: right;
+}
+
+.txt6b{
+    position: absolute;
+    bottom: 10%;
+    left: 8%;
+    text-align: right;
+}
+
+//page7
+.txt7a{
     position: absolute;
     top: 10%;
     left: 10%;
@@ -134,11 +208,12 @@
     @include mobile { left: auto; text-align: center; top: 4%; }
 }
 
-.txt4b {
+.txt7b {
     position: absolute;
-    width: 60%;
-    top: 65%;
-    text-align: center;
+    width: 45%;
+    top: 70%;
+    text-align: left;
+    right: 5%;
     color: #000000;
     @include laptop { width: 75%; }
     @include tablet { width: 60%; }
@@ -147,7 +222,7 @@
 
 .wrapper-video {
     video { 
-        clip-path: circle(120px at 50% 45%); 
+        clip-path: circle(200px at 50% 45%); 
         @include tablet { 
             clip-path: circle(120px at 50% 45%);
         }
@@ -171,3 +246,4 @@
     }
 }
 
+.carrousel .slide .arrows{ bottom: 47%; }
