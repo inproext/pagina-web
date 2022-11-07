@@ -7,6 +7,7 @@
     width: auto;
     height: 110vh;
     bottom: -10vh;
+    @include desktop { height: 120vh; }
     @include mobile { height: 100vh;}
 }
 
@@ -42,6 +43,7 @@
 .wrapper-video {
     video { 
         clip-path: circle(200px at 50% 45%); 
+        @include desktop{ clip-path: circle(180px at 50% 45%);  }
         @include laptop{ clip-path: circle(160px at 50% 45%);  }
         @include tablet{ clip-path: circle(120px at 50% 45%);  }
         @include mobile { clip-path: circle(0px at 50% 50%); object-fit: contain; }
@@ -86,7 +88,7 @@
 
 .txt3a{
     position: absolute;
-    top: 20%;
+    top: 15%;
     text-align: center;
     @include laptop { top: 15%; }
     @include mobile { text-align: center; top: 10%; }
@@ -107,7 +109,7 @@
 .txt3c{
     position: absolute;
     text-align: center;
-    bottom: 15%;
+    bottom: 10%;
     width: 50%;
     @include mobile { width: 90%; bottom: 10%; }
 }

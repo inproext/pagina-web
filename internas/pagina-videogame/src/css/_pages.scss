@@ -252,5 +252,8 @@ body.page1-active .instruction { display: none; }
     right: 5%;
     width: 40%;
     bottom: 10%;
+    @include desktop { bottom: 0%; }
+    @include laptop { bottom: 5%; }
+    @include tablet { bottom: 0%; }
     @include mobile { left: 5%; width: 90%; bottom: 15%; text-align: center; }
 }

@@ -241,6 +241,7 @@
         @include tablet { font-size: 2.5rem; }
         @include mobile { font-size: 2rem; }
     }
+    @include desktop { left: 5%;  }
     @include laptop { top: 14%; left: 4%; }
     @include tablet { top: 8%; left: 7%;}
     @include mobile { left: auto; text-align: center; top: 5%;  }
@@ -253,14 +254,16 @@
     text-align: left;
     right: 5%;
     color: #000000;
-    @include laptop { width: 90%; right: 5%; text-align: center; }
-    @include tablet { width: 90%; right: 5%; text-align: center; }
+    @include desktop { top: 72%; }
+    @include laptop { top: 75%; width: 90%; right: 5%; text-align: center; }
+    @include tablet { top: 75%; width: 90%; right: 5%; text-align: center; }
     @include mobile { top: 60%;  width: 90%; right: 5%; text-align: center;}
 }
 
 .wrapper-video {
     video { 
         clip-path: circle(200px at 50% 45%); 
+        @include desktop { clip-path: circle(180px at 50% 45%); }
         @include laptop {  clip-path: circle(170px at 50% 45%); }
         @include tablet {  clip-path: circle(120px at 50% 45%); }
         @include mobile {  clip-path: circle(0px at 50% 45%); object-fit: contain; }
@@ -303,7 +306,7 @@
         }
         .bullets {
             position: absolute;
-            bottom: 10%;
+            bottom: 5%;
             display: flex;
             .dot {
                 margin: 0 8px;

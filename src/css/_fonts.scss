@@ -10,6 +10,7 @@ p{
     font-size: 5.5rem;
     font-weight: bold;
     line-height: 4.5rem;
+    @include desktop { font-size: 5.0rem; line-height: 4.7rem; }
     @include laptop { font-size: 4.7rem; line-height: 4.5rem; }
     @include tablet { font-size: 4.3rem; line-height: 4rem; }
     @include mobile { font-size: 2.3rem; line-height: 2.0rem; }
@@ -19,6 +20,7 @@ p{
     font-size: 4.2rem;
     font-weight: 600;
     line-height: 4.0rem;
+    @include desktop { font-size: 3.85rem; line-height: 3.5rem; }
     @include laptop { font-size: 3.5rem; line-height: 3.2rem; }
     @include tablet { font-size: 2.8rem; line-height: 2.5rem; }
     @include mobile { font-size: 1.8rem; line-height: 1.5rem; }
@@ -29,6 +31,7 @@ p{
     font-weight: 600;
     line-height: 2.0rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
+    @include desktop { font-size: 2rem; line-height: 1.8rem; }
     @include laptop { font-size: 1.8rem; line-height: 1.5rem; }
     @include tablet { font-size: 1.5rem; line-height: 1.3rem; }
     @include mobile { font-size: 1.3rem; line-height: 1rem; }
@@ -39,6 +42,7 @@ p{
     font-weight: 100;
     line-height: 2.0rem;
     text-shadow: 2px 1px 13px rgb(0 0 0 / 50%);
+    @include desktop { font-size: 2rem; line-height: 1.8rem; }
     @include laptop { font-size: 1.8rem; line-height: 1.5rem; }
     @include tablet { font-size: 1.5rem; line-height: 1.3rem; }
     @include mobile { font-size: 1.3rem; line-height: 1rem; }

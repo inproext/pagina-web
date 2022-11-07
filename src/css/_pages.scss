@@ -7,7 +7,8 @@
     width: 900px;
     height: auto;
     left: 5%;
-    top: 10%; 
+    top: 10%;
+    @include desktop { width: 800px; }
     @include laptop { width: 720px; }
     @include tablet { width: 520px; }
     @include mobile { width: 80%; top: 18%; }
@@ -19,6 +20,7 @@
     height: auto;
     right: 7%;
     bottom: 20%; 
+    @include desktop { width: 475px; }
     @include laptop{ width: 429px; }
     @include tablet { width: 315px; }
     @include mobile { width: 50%; bottom: 26%; right: 15%; }
@@ -236,6 +238,7 @@
     top: 15%;
     right: 10%;
     text-align: right;
+    .txt-x4{ line-height: 2.5rem; @include mobile{ line-height: 2rem; } }
     @include mobile { top: 28%; right: auto; left: 5%; text-align: left; }
 }
 
@@ -281,6 +284,10 @@
     top: 28%;
     right: 6%;
     text-align: left;
+    .txt-x4{ 
+        line-height: 3.5rem;
+        @include mobile{ line-height: 2rem; }
+    }
     @include mobile { display: none; }
 }
 
@@ -332,6 +339,7 @@
         @include mobile{ font-size: 2rem; line-height: 2rem; }
     }
     // @include laptop { top: 32%; }
+    @include desktop{ left: 5%; top: 20%; }
     @include mobile { left: 5%; top: 15%; }
 }
 
@@ -353,5 +361,6 @@
         @include mobile{ font-size: 2rem; line-height: 2rem; }
     }
     // @include laptop { bottom: 32%; }
+    @include desktop{ right: 5%; bottom: 18%; }
     @include mobile { right: 5%; bottom: 20%; }
 }
