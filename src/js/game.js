@@ -98,7 +98,7 @@ class Game3d {
     moveCamera(_point){
         let _this = this;
         let geometry = this.model.getObjectByName(_point.geometry);
-        if(_point.id === 1) {
+        if(_point.id === 1 || _point.id === 8) {
             this.playAnimation();
         }
         else{

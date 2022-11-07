@@ -43,9 +43,14 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'llamadorClick', src: 'dist/img/llamadorClick.gif' },
+    { id: 'llamadorDrag', src: 'dist/img/llamadorDrag.gif' },
+    { id: 'llamadorDrop', src: 'dist/img/llamadorDrop.gif' },
+    { id: 'inmersivo_1a_front', src: 'dist/img/inmersivo_1a_front.png' },
+    { id: 'inmersivo_1a_back', src: 'dist/img/inmersivo_1a_back.png' },
     { id: 'inmersivo_1a', src: 'dist/img/inmersivo_1a.png' },
-    { id: 'inmersivo_1b', src: 'dist/img/inmersivo_1b.png' },
-    { id: 'inmersivo_1c', src: 'dist/img/inmersivo_1c.png' },
+    { id: 'inmersivo_1b_es', src: 'dist/img/inmersivo_1b_es.png' },
+    { id: 'inmersivo_1b_en', src: 'dist/img/inmersivo_1b_en.png' },
     //{ id: 'inmersivo_1d', src: 'dist/img/inmersivo_1d.png' },
     { id: 'inmersivo_2a', src: 'dist/img/inmersivo_2a.png' },
     { id: 'inmersivo_3a', src: 'dist/img/inmersivo_3a.png' },
@@ -106,6 +111,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkInstruction();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -466,6 +472,14 @@ function checkParallax() {
     let parallaxScene = document.querySelector('.parallax-scene');
     if(parallaxScene !== null) {
         new Parallax(parallaxScene);
+    }
+}
+
+function checkInstruction () {
+    let instruction = document.querySelector('.instruction');
+    
+    if(instruction !== null){
+        setTimeout(() => { instruction.classList.add('viewed'); }, 3000);   
     }
 }
 

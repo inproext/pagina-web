@@ -21,3 +21,5 @@ body[data-page="7"] .container-transition { background-color: #E32043; }
     object-position: center;
     opacity: 0.5;
 }
+
+body[data-page="2"] .container-mark { display: none; }

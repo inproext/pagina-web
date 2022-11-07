@@ -2,25 +2,76 @@
 
 // Page 1
 
+.robot{
+    position: relative;
+    height: 765px;
+    width: 440px;
+    background-size: cover;
+    transition: 0.6s;
+    @include tablet { display: none;  }
+    @include mobile { display: none;  }
+}
+
+.drop{
+    position: absolute;
+    top: 38%;
+    left: 37.5%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.196);
+    .robot-cog{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    @include tablet { display: none;  }
+    @include mobile { display: none;  }
+}
+
+.robot-cog{
+    position: absolute;
+    top: 49%;
+    right: 10%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    @include tablet { display: none;  }
+    @include mobile { display: none;  }
+}
+
 .image-kids1a{
     position: absolute;
     width: auto;
     height: 90vh;
     bottom: -10vh;
     @include tablet { width: auto; height: 100%;}
-    @include mobile { width: auto; height: 95%; left: -70%;}
+    @include mobile { width: auto; height: 95%; left: -90%;}
 }
+
+.page1-active .image-kids1b{ left: 60%; }
 
 .image-kids1b{
     position: absolute;
-    width: 320px;
+    width: 570px;
     height: auto;
-    right: 20%;
-    top: 33%;
-    @include tablet { width: 315px; right: 10%; }
-    @include mobile { width: 75%; right: 12%; top: 45%; }
+    left: 0%;
+    top: 26%;
+    transition: 0.6s all;
+    z-index: 1;
+    @include laptop { width: 480px; }
+    @include tablet { width: 315px; left: 0; right: 0; margin: 0 auto; top: 55%; }
+    @include mobile { width: 315px; left: 0; right: 0; margin: 0 auto; top: 55%; }
 }
 
+.slide-hide{ 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;
+    @include tablet { display: block !important; }
+    @include mobile { display: block !important; }
+}
+
+.page1-active .slide-hide { display: block; }
+.page1-active .drag-and-drop { display: none; }
 // Page 2
 
 .image-kids2a{
@@ -33,44 +84,41 @@
 .txt2a{
     position: absolute;
     width: 30%;
-    left: 7%;
-    top: 27%;
+    left: 5%;
+    top: 15%;
     text-align: right;
     @include tablet { left: 5%; }
-    @include mobile { width: 80%; top: 10%; width: 80%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: -5%; }
+    @include mobile { width: 90%; top: 10%;  left: 5%; text-align: center; }
 }
 
 .txt2b{
     position: absolute;
     width: 25%;
-    right: 7%;
+    right: 5%;
     bottom: 20%;
     text-align: left;
     @include tablet { right: 3%; }
-    @include mobile { width: 80%; top: 60%; width: 80%; background-color:rgb(104 68 12 / 60%); padding: 15px; right: -5%; }
+    @include mobile { width: 90%; top: 70%; right: 5%; text-align: center; }
 }
 
 .wrapper-video {
     video { 
-        clip-path: circle(90px at 15% 62%);
-        @include mobile { 
-            clip-path: circle(60px at 50% 50%);
-            display: none;
-        }
+        clip-path: circle(150px at 15% 62%);
+        @include laptop { clip-path: circle(100px at 15% 62%); }
+        @include tablet { clip-path: circle(100px at 15% 62%); }
+        @include mobile { clip-path: circle(0px at 50% 50%); object-fit: contain; }
     }
 
     &.active {
         video { 
-            @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
-            }
+            @include mobile { clip-path: circle(140vw at 50% 45%) !important; }
         }
     }
-    span { 
+    .title-reel { 
         left: 20%;
-        top: 62%;
+        top: 61%;
         text-shadow: 0px 0px 5px black;
-        @include mobile { left: 50%; top: 50%; display: none; } 
+        @include mobile { width: 90%; left: 5%; top: 40%;} 
     }
 }
 
@@ -81,7 +129,6 @@
     width: auto;
     text-align: center;
     height: 50vh;
-    @include tablet { left: 6%; }
     @include mobile { width: 80%; height: auto; top: 29%; }
 }
 
@@ -94,10 +141,10 @@
 
 .txt3b{
     position: absolute;
-    width: 25%;
-    top: 33%;
-    right: 3%;
-    @include tablet { top: 40%; }
+    width: 30%;
+    top: 44%;
+    right: 5%;
+    @include tablet { top: 70%; width: 41%; }
     @include mobile { width: 80%; top: 69%; text-align: center; right: 10%; }
 }
 
@@ -110,22 +157,34 @@
     bottom: -40px;
     left: 23%;
     @include tablet { left: 14%; }
-    @include mobile { width: 90%; height: auto; top: 6%; left: 4%; border-bottom: 3px solid #fff;}
+    @include mobile { width: 90%; height: auto; top: 46%; left: 4%; border-bottom: 3px solid #fff;}
 }
 
 .image-kidsi4b{
     position: absolute;
-    top: 5%;
+    top: 15%;
+    width: 215px;
+    @include tablet { top: 18%; left: 46%; width: 160px;  }
+    @include mobile {  top: 35%; left: 40%; width: 145px;  }
 }
 
 .image-kidsi4c{
     position: absolute;
-    top: 5%;
+    top: 20%;
+    left: 52%;
+    width: 300px;
+    @include laptop {  top: 22%; left: 54%; width: 200px;  }
+    @include tablet {  top: 22%; left: 54%; width: 150px;  }
+    @include mobile {  top: 44%; left: 49%; width: 145px;  }
 }
 
 .image-kidsi4d{
     position: absolute;
-    top: 5%;
+    top: 0%;
+    width: 130px;
+    @include laptop { width: 100px; }
+    @include tablet { width: 100px; }
+    @include mobile {  top: 35%; left: 40%; width: 80px;  }
 }
 
 .txt4a{
@@ -134,8 +193,8 @@
     left: 7%;
     top: 49%;
     text-align: right;
-    @include tablet { left: 3%; }
-    @include mobile { top: 47%; width: 69%; background-color: rgb(104 68 12 / 60%); padding: 15px; left: 0%;}
+    @include tablet { left: 3%; top: 55%; }
+    @include mobile { top: 5%; width: 69%;  left: 0%;}
 }
 
 .txt4b{
@@ -144,7 +203,7 @@
     top: 25%;
     text-align: left;
     @include tablet { right: 5%; }
-    @include mobile { bottom: -35%; width: 80%; }
+    @include mobile { top: 65%; width: 80%; }
 }
 
 .txt4c{
@@ -153,7 +212,7 @@
     top: 25%;
     text-align: left;
     @include tablet { right: 5%; }
-    @include mobile { bottom: -35%; width: 80%; }
+    @include mobile { top: 75%; width: 90%; }
 }
 
 .txt4d{
@@ -171,7 +230,7 @@
     top: 25%;
     text-align: left;
     @include tablet { right: 5%; }
-    @include mobile { top: 0%; width: 80%; right: 0%; }
+    @include mobile { top: 18%; width: 80%; right: 0%; }
 }
 
 .txt4f{
@@ -198,6 +257,7 @@
     height: 30vh;
     top: 19%;
     right: 14%;
+    display: none;
     @include tablet { right: 9%; width: 20%; height: auto; top: 28%; }
     @include mobile { display: none; }
 
@@ -240,3 +300,53 @@
     align-items: center;
 }
 
+.car {
+    position: absolute;
+    top: 18%;
+    right: 15%;
+    width: 300px;
+    height: 300px;
+    animation-name: movex;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    @include laptop{ width: 230px; height: 230px; }
+    @include tablet{ top: 25%; width: 200px; height: 200px; }
+    @include mobile{ top: 20%; width: 100px; height: 100px; }
+    .chasis {
+        position: absolute;
+        width: 100%;
+        bottom: 25%;
+    }
+
+    .llanta{
+        position: absolute;
+        width: 30%;
+        bottom: 0;
+        animation-duration: 2s;
+        animation-name: gira;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite; 
+        &.llanta1{ left: 11%; }
+        &.llanta2{ right: 11%; }
+    }
+
+    .piston {
+        position: absolute;
+        width: 15%;
+        height: 35%;
+        background-color: #fff;
+        bottom: 61%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        animation-duration: 0.6s;
+       
+        animation-direction: alternate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite; 
+
+        &.p1{ left: 25%; height: 20%;  animation-name: piston1;  }
+        &.p2{ left: 42.5%;  animation-name: piston2; }
+        &.p3{ right: 25%; height: 20%;  animation-name: piston1; }
+    }
+}

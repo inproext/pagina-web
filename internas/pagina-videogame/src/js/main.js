@@ -43,6 +43,9 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'llamadorClick', src: 'dist/img/llamadorClick.gif' },
+    { id: 'llamadorDrag', src: 'dist/img/llamadorDrag.gif' },
+    { id: 'llamadorDrop', src: 'dist/img/llamadorDrop.gif' },
     { id: 'control', src: 'dist/img/control.png' },
     { id: 'videogame_1a', src: 'dist/img/videogame_1a.png' },
     { id: 'videogame_1b', src: 'dist/img/videogame_1b.png' },
@@ -52,7 +55,9 @@ preload.addImages([
     { id: 'videogame_3b', src: 'dist/img/videogame_3b.png' },
     { id: 'videogame_4a', src: 'dist/img/videogame_4a.png' },
     { id: 'videogame_4b', src: 'dist/img/videogame_4b.png' },
-    { id: 'videogame_4c', src: 'dist/img/videogame_4c.png' }
+    { id: 'videogame_4b_en', src: 'dist/img/videogame_4b_en.png' },
+    { id: 'videogame_4c', src: 'dist/img/videogame_4c.png' },
+    { id: 'videogame_4c_en', src: 'dist/img/videogame_4c_en.png' }
 
 ]);
 
@@ -107,6 +112,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkInstruction();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -404,6 +410,14 @@ function checkParallax() {
     let parallaxScene = document.querySelector('.parallax-scene');
     if(parallaxScene !== null) {
         new Parallax(parallaxScene);
+    }
+}
+
+function checkInstruction () {
+    let instruction = document.querySelector('.instruction');
+    
+    if(instruction !== null){
+        setTimeout(() => { instruction.classList.add('viewed'); }, 3000);   
     }
 }
 

@@ -11,6 +11,8 @@ body[data-page="5"] .container-transition { background-color: #82C6D1; }
 body[data-page="6"] .container-transition { background-color: #82C6D1; }
 body[data-page="7"] .container-transition { background-color: #82C6D1; }
 
+body[data-page="4"] .container-mark { display: none; }
+
 .control-bg {
     position: absolute;
     top: 20%;

@@ -2,6 +2,8 @@
 
 // Page 1
 
+body .slide-hide{ display: none; }
+body.page1-active .slide-hide { display: block; }
 .image-videogame1a{
     position: absolute;
     width: auto;
@@ -31,6 +33,56 @@
     @include mobile { width: 80%; height: auto; left: 12%; top: 16%; }
 }
 
+.button-game{
+    position: absolute;
+    right: 10%;
+    top: 43%;
+    width: 80px;
+    height: 70px;
+    border: 2px solid #fff;
+    background-color: #fff3;
+    border-radius: 6px;
+    font-family: "Alegreya Sans";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    box-shadow: 0px 8px 0px 3px rgb(255 255 255 / 30%);
+    cursor: pointer;
+    transition: all 0.1s;
+    @include mobile{ right: 38%; top: 63%; } 
+    span{
+        position: absolute;
+        bottom: -60px;
+        font-size: 1.5rem;
+        width: 200%;
+        left: -50%;
+        text-align: center;
+    }
+}
+
+body.page1-active .button-game { display: none; }
+
+.button-game:active{
+    margin-top: 6px;
+    box-shadow: 0px 6px 0px rgba(255, 255, 255, 0.3);
+}
+
+.instruction{
+    img {
+        position: absolute;
+        top: 48%;
+        right: 7%;
+    }
+    .txt-x5{
+        position: absolute;
+        top: 55%;
+        right: 18%;
+    }
+}
+
+body.page1-active .instruction { display: none; }
+
 // Page 2
 
 .image-videogame2a{
@@ -38,17 +90,17 @@
     width: auto;
     height: 60vh;
     top: 5%;
-    @include mobile { width: auto; height: 40%; top: 25%; }
+    @include mobile { width: auto; height: 40%; top: 18%; }
 }
 
 .txt2a{
     position: absolute;
-    left: 4%;
-    top: 13%;
-    width: 30%;
+    left: 0%;
+    top: 5%;
+    width: 35%;
     text-align: right;
-    @include tablet { left: 5%; }
-    @include mobile { top: 8%; width: 80%; text-align: center; left: 11%; }
+    @include tablet { left: 0%; width: 42%; }
+    @include mobile { top: 5%; width: 80%; text-align: center; left: 11%; }
 }
 
 .txt2b{
@@ -58,37 +110,35 @@
     width: 30%;
     text-align: left;
     @include tablet { right: 5%; }
-    @include mobile { width: 80%; top: 70%; left: 11%; text-align: center; }
+    @include mobile { width: 80%; top: 60%; left: 11%; text-align: center; }
 }
 
 .txt2c{
     position: absolute;
     bottom: 11%;
     text-align: center;
-    @include mobile { display: none;}
+    @include mobile { bottom: 10%; }
 }
 
 .wrapper-video {
     video { 
-        clip-path: circle(90px at 10% 50%); 
-        @include mobile { 
-            clip-path: circle(60px at 50% 50%);
-            display: none;
-        }
+        clip-path: circle(105px at 12% 54%);
+        @include tablet {  clip-path: circle(80px at 12% 54%); }
+        @include mobile {  clip-path: circle(0px at 50% 50%); object-fit: contain; }
     }
 
     &.active {
         video { 
             @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
+                clip-path: circle(140vw at 50% 45%) !important; 
             }
         }
     }
-    span { 
+    .title-reel { 
         left: 15%;
         top: 52%;
         text-shadow: 0px 0px 5px black;
-        @include mobile { left: 10%; top: 50%; display: none; } 
+        @include mobile { left: 5%; top: 40%; width: 90%; } 
     }
 }
 
@@ -98,111 +148,55 @@
     width: auto;
     height: 115vh;
     bottom: -35%;
-    @include mobile { width: 62%; height: auto; bottom: -8%;}
-}
-
-.image-videogame3b{
-    position: absolute;
-    width: auto;
-    height: 100vh;
-    bottom: -29%;
-    @include mobile { width: 59%; height: auto; bottom: -8%;}
+    @include mobile { width: 62%; height: auto; bottom: -30%;}
 }
 
 .txt3a{
     position: absolute;
-    right: 15%;
+    right: 7%;
     top: 20%;
     text-align: left;
-    @include tablet { right: 5%; right: 7%; }
-    @include mobile { width: 80%; top: 55%; text-align: left;}
+    @include tablet { right: 5%; }
+    @include mobile { width: 80%; top: 7%; text-align: center; left: 10%; }
 }
 
 .txt3b{
     position: absolute;
-    width: 26%;
-    top: 49%;
-    left: 9%;
+    width: 38%;
+    top: 60%;
+    left: 5%;
     text-align: right;
     @include tablet { left: 4%; }
-    @include mobile { width: 80%; text-align: center; top: 72%; left: 10%; }
+    @include mobile { width: 80%; text-align: center; top: 26%; left: 10%; }
 }
-
-.txt3c{
-    position: absolute;
-    width: 25%;
-    top: 49%;
-    left: 7%;
-    text-align: right;
-    @include mobile { width: 80%; top: 55%; text-align: left;}
-}
-
-
-.txt3d{
-    position: absolute;
-    width: 25%;
-    right: 7%;
-    top: 20%;
-    text-align: left;
-    @include mobile { width: 80%; text-align: center; top: 72%; left: 10%; }
-}
-
 
 //page4
+
 .image-videogame4a{
     position: absolute;
-    width: 75%;
-    height: auto;
-    top: 25%;
-    right: -2%;
-    @include tablet { width: 90%; height: auto; top: 25%; }
-    @include mobile { width: 180%; height: auto; left: -61%;}
-}
-
-.image-videogame4b{
-    position: absolute;
-    width: 75%;
-    height: auto;
-    top: 25%;
-    right: -2%;
-    @include tablet { width: 90%; height: auto; top: 25%; }
-    @include mobile { width: 190%; height: auto; left: -61%;}
+    width: auto;
+    height: 115vh;
+    bottom: -35%;
+    @include mobile { width: 62%; height: auto; bottom: -30%;}
 }
 
 .txt4a{
     position: absolute;
-    width: 30%;
-    top: 20%;
-    left: 7%;
+    left: 2%;
+    top: 65%;
     text-align: left;
-    @include tablet { top: 20%; left: 7%;}
-    @include mobile { width: 80%; text-align: center; top: 72%; right: 10%; }
+    @include tablet { left: 2%; top: 65%; }
+    @include mobile { width: 80%; top: 7%; text-align: center; left: 10%; }
 }
 
-.txt4b {
+.txt4b{
     position: absolute;
     width: 30%;
-    top: 20%;
-    right: 7%;
+    top: 25%;
+    right: 5%;
     text-align: left;
-    @include tablet { top: 20%; left: 7%;}
-    @include mobile { width: 80%; text-align: center; top: 70%; right: 10%; }
-}
-
-.txt4c {
-    position: absolute;
-    display: none;
-    @include laptop { display: none; }
-    @include tablet { display: none;}
-    @include mobile { display: block; top: 57%; width: 80%; text-align: center;}
-}
-
-.txt4d {
-    position: absolute;
-    display: none;
-    @include laptop { display: none; }
-    @include tablet { display: none;}
-    @include mobile { display: block; top: 61%; width: 80%; text-align: center;}
+    @include tablet { top: 25%; right: 5%; }
+    @include mobile { width: 80%; text-align: center; top: 17%; left: 10%; }
 }
 
 //Page5
@@ -213,7 +207,7 @@
     top: 10%;
     right: -2%;
     @include tablet { width: 90%; height: auto; top: 25%; }
-    @include mobile { width: 180%; height: auto; left: -61%;}
+    @include mobile { width: 110%; top: 45%; height: auto; left: 5%; }
 }
 
 .image-videogame5b{
@@ -223,7 +217,7 @@
     top: 4%;
     right: -2%;
     @include tablet { width: 90%; height: auto; top: 25%; }
-    @include mobile { width: 190%; height: auto; left: -61%;}
+    @include mobile { width: 130%; top: 29%; height: auto; left: 7%; }
 }
 
 .image-videogame5c{
@@ -233,13 +227,13 @@
     top: 0%;
     right: -2%;
     @include tablet { width: 90%; height: auto; top: 25%; }
-    @include mobile { width: 190%; height: auto; left: -61%;}
+    @include mobile { width: 130%; top: 29%; height: auto; left: 7%; }
 }
 
 .txt5a{
     position: absolute;
-    top: 15%;
-    left: 15%;
+    top: 7%;
+    left: 7%;
     text-align: right;
 }
 
@@ -249,6 +243,8 @@
     left: 15%;
     width: 40%;
     text-align: right;
+    @include tablet { left: 2%; }
+    @include mobile { left: 5%; width: 90%; top: 25%; text-align: center; }
 }
 
 .txt5c{
@@ -256,4 +252,5 @@
     right: 5%;
     width: 40%;
     bottom: 10%;
+    @include mobile { left: 5%; width: 90%; bottom: 15%; text-align: center; }
 }

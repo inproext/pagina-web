@@ -154,6 +154,7 @@ body{
                 opacity: 0.9;
                 color: #ff00a5;
             }
+            &.active{ border-bottom: 3px solid #fff; }
         }
         &.active { top: 0; }
     }

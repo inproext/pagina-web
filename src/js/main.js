@@ -31,7 +31,7 @@ let cameraPoints = [
     { id: 5, geometry: 'icosaedro', bgColor: '#95D4CC', speed: 1000 },
     { id: 6, geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
     { id: 7, geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
-    { id: 8, geometry: 'esfera', bgColor: '#FFA4FF',  speed: 1000 },
+    { id: 8, geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF',  speed: 1000 },
 ];
 /*
 let cameraPoints = [
@@ -60,8 +60,13 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'llamadorClick', src: 'dist/img/llamadorClick.gif' },
+    { id: 'llamadorDrag', src: 'dist/img/llamadorDrag.gif' },
+    { id: 'llamadorDrop', src: 'dist/img/llamadorDrop.gif' },
     { id: 'home_1a', src: 'dist/img/home_1a.png' },
     { id: 'home_1b', src: 'dist/img/home_1b.png' },
+    { id: 'home_1a_en', src: 'dist/img/home_1a_en.png' },
+    { id: 'home_1b_en', src: 'dist/img/home_1b_en.png' },
     { id: 'home_2a', src: 'dist/img/home_2a.png' },
     { id: 'home_3a', src: 'dist/img/home_3a.png' },
     { id: 'home_3b', src: 'dist/img/home_3b.png' },
@@ -128,6 +133,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkInstruction();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -425,6 +431,14 @@ function checkParallax() {
     let parallaxScene = document.querySelector('.parallax-scene');
     if(parallaxScene !== null) {
         new Parallax(parallaxScene);
+    }
+}
+
+function checkInstruction () {
+    let instruction = document.querySelector('.instruction');
+    
+    if(instruction !== null){
+        setTimeout(() => { instruction.classList.add('viewed'); }, 3000);   
     }
 }
 

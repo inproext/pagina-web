@@ -5,23 +5,12 @@
 .image-inmersivo1a{
     position: absolute;
     width: auto;
-    height: 90vh;
+    height: 110vh;
     bottom: -10vh;
-    @include tablet { width: 580px; height: auto; }
-    @include mobile { width: 120%; height: auto; left: -20%;}
+    @include mobile { height: 100vh;}
 }
 
 .image-inmersivo1b{
-    position: absolute;
-    width: 70%;
-    height: auto;
-    right: 7%;
-    bottom: -10%;
-    @include tablet { width: 90%; height: auto; left: 22%; top: 7%; }
-    @include mobile { width: 154%; bottom: 20%; right: -64%; }
-}
-
-.image-inmersivo1c{
     position: absolute;
     width: 45%;
     height: auto;
@@ -30,55 +19,47 @@
 }
 
 // Page 2
-
-.image-inmersivo2a{
-    position: absolute;
-    width: auto;
-    height: 95vh;
-    @include tablet { width: 65%; height: auto; }
-    @include mobile { width: 80%; height: auto; top: 17%;}
-}
-
 .txt2a{
     position: absolute;
     width: 30%;
-    left: 7%;
+    left: 5%;
     top: 13%;
     text-align: right;
     @include tablet { left: 5%; }
-    @include mobile { top: 6%; width: 86%; left: 3%; }
+    @include mobile { top: 15%; width: 86%; left: 3%; }
 }
 
 .txt2b{
     position: absolute;
-    width: 30%;
-    right: 7%;
-    bottom: 13%;
+    width: 42%;
+    right: 5%;
+    bottom: 10%;
     text-align: left;
     @include tablet { right: 5%; bottom: 8%;}
-    @include mobile { bottom: 12%; width: 85%; right: 6%;}
+    @include mobile { bottom: 15%; width: 85%; right: 6%;}
 }
 
 .wrapper-video {
     video { 
-        clip-path: circle(125px at 50% 45%); 
-        @include mobile { 
-            clip-path: circle(60px at 50% 50%); 
-        }
+        clip-path: circle(200px at 50% 45%); 
+        @include laptop{ clip-path: circle(160px at 50% 45%);  }
+        @include tablet{ clip-path: circle(120px at 50% 45%);  }
+        @include mobile { clip-path: circle(0px at 50% 50%); object-fit: contain; }
     }
 
     &.active {
         video { 
-            @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
-            }
+            @include mobile { clip-path: circle(140vw at 50% 45%) !important;  }
         }
     }
-    span { 
+    .title-reel { 
         left: 58%;
-        top: 46%;
+        top: 43%;
         text-shadow: 0px 0px 5px black;
-        @include mobile { left: 50%; top: 50%; } 
+        font-size: 3rem;
+        @include laptop { font-size: 2.5rem; } 
+        @include tablet { font-size: 1.8rem; } 
+        @include mobile { left: 0%; top: 45%; font-size: 1.8rem;   width: 100%; text-align: center; } 
     }
 }
 
@@ -90,7 +71,7 @@
     height: 20vh;
     left: 10%;
     @include tablet { left: 7%;}
-    @include mobile { display: none;}
+    @include mobile { top: 55%; left: 15%; width: 80px; height: auto;}
 }
 
 .image-inmersivo3b{
@@ -99,7 +80,7 @@
     height: 20vh;
     right: 10%;
     @include tablet { right: 7%;}
-    @include mobile { display: none; }
+    @include mobile { top: 55%; right: 15%; width: 80px; height: auto; }
 }
 
 
@@ -107,7 +88,8 @@
     position: absolute;
     top: 20%;
     text-align: center;
-    @include mobile { text-align: center; top: 12%; }
+    @include laptop { top: 15%; }
+    @include mobile { text-align: center; top: 10%; }
 }
 
 .txt3b{
@@ -116,8 +98,10 @@
     top: 40%;
     width: 30%;
     color: rgba(0, 0, 0, 0.521);
-    @include mobile { width: 80%; left: 22%; top: 24%;}
-    li{ line-height: 2rem;}
+    @include laptop { top: 35%; width: 35%; }
+    @include tablet { top: 35%; width: 45%; }
+    @include mobile { width: 60%; left: 20%; top: 20%;}
+    li{ line-height: 2rem; margin: 12px 0;}
 }
 
 .txt3c{
@@ -125,7 +109,7 @@
     text-align: center;
     bottom: 15%;
     width: 50%;
-    @include mobile { width: 75%; bottom: 20%; }
+    @include mobile { width: 90%; bottom: 10%; }
 }
 
 .txt3d{
@@ -238,7 +222,7 @@
     left: 15%;
     bottom: -40px;
     @include tablet { left: 15%;}
-    @include mobile { width: auto; height: 70%; left: -20%; }
+    @include mobile { width: auto; height: 70%; left: -65%; }
 }
 
 .image-inmersivo4d{

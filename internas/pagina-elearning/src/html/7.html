@@ -4,12 +4,12 @@
             <div class="txt7a txt-shadow animate__animated animate__lightSpeedInLeft">
                 <span class="txt-x3">
                     <span class="txt-es">Multimedia en <br> formato SCORM</span>
-                    <span class="txt-en">Personalized <br> multimedia <br> in “Scorm” format</span>
+                    <span class="txt-en">Personalized <br> multimedia <br> in “Scorm” <br> format</span>
                 </span>
             </div>
 
             <div id="VideoReel1" class="wrapper-video animate__animated animate__fadeInDown">
-                <span onclick="addActive('#VideoReel1');">Ver reel</span>
+                <div class="title-reel" onclick="addActive('#VideoReel1');"> <i class="fas fa-film"></i> <span class="txt-es">Ver reel</span> <span class="txt-en">Watch reel</span> </div>
                 <video onclick="addActive('#VideoReel1');" loop muted autoplay playsinline>
                     <source src="https://repository.inproext.com/videos-pagina-web/reel-elearning-compres.mp4">
                 </video>
@@ -25,6 +25,11 @@
             <div class="arrows">
                 <img data-image="arrow-left" class="load-image btn-arrow" style="opacity: 0;">
                 <img data-image="arrow-right" class="load-image btn-arrow" onclick="showAndHide('#Slide4b','#Slide4a');">
+            </div>
+            <div class="bullets">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
 
@@ -44,9 +49,9 @@
                 </span>
             </div>
             
-            <div id="VideoReel3" class="wrapper-video">
-                <span onclick="addActive('#VideoReel3');">Ver reel</span>
-                <video onclick="addActive('#VideoReel3');" loop muted autoplay playsinline>
+            <div id="VideoReel2" class="wrapper-video">
+                <div class="title-reel" onclick="addActive('#VideoReel2');"> <i class="fas fa-film"></i> <span class="txt-es">Ver reel</span> <span class="txt-en">Watch reel</span> </div>
+                <video onclick="addActive('#VideoReel2');" loop muted autoplay playsinline>
                     <source src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4">
                 </video>
             </div>
@@ -55,25 +60,30 @@
                 <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide4a','#Slide4b');">
                 <img data-image="arrow-right" class="load-image btn-arrow" onclick="showAndHide('#Slide4c','#Slide4b');">
             </div>
+            <div class="bullets">
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
         </div>
 
         <div id="Slide4c" class="slide">
             <div class="txt7a txt-shadow animate__animated animate__lightSpeedInLeft">
                 <span class="txt-x3">
                     <span class="txt-es">Corto y Efectivo</span>
-                    <span class="txt-en">####</span>
+                    <span class="txt-en">Short and effective</span>
                 </span>
             </div>
             
             <div class="txt7b animate__animated animate__fadeIn">
                 <span class="txt-x5">
-                    <span class="txt-es"> EMateriales educativos de rápida producción estructurados con narrativas inmersivas en infografías, cartillas, podcast y videos que a tus estudiantes o usuarios les encantarán.</span>
-                    <span class="txt-en">Is one of our specialties. We have at our disposal multiple collections that will make you meet your targets in a record time using state-of-the-art technology and innovation.</span>
+                    <span class="txt-es">Materiales educativos de rápida producción estructurados con narrativas inmersivas en infografías, cartillas, podcast y videos que a tus estudiantes o usuarios les encantarán.</span>
+                    <span class="txt-en">Quick-production educational material, structured with immersive narratives on infographics, booklets, podcasts and videos that your students or employees will love.</span>
                 </span>
             </div>
             
             <div id="VideoReel3" class="wrapper-video">
-                <span onclick="addActive('#VideoReel3');">Ver reel</span>
+                <div class="title-reel" onclick="addActive('#VideoReel3');"> <i class="fas fa-film"></i> <span class="txt-es">Ver reel</span> <span class="txt-en">Watch reel</span> </div>
                 <video onclick="addActive('#VideoReel3');" loop muted autoplay playsinline>
                     <source src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4">
                 </video>
@@ -81,6 +91,11 @@
 
             <div class="arrows">
                 <img data-image="arrow-left" class="load-image btn-arrow" onclick="showAndHide('#Slide4b','#Slide4c');">
+            </div>
+            <div class="bullets">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot active"></div>
             </div>
         </div>
         

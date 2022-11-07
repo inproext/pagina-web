@@ -2,6 +2,7 @@ import { LoaderFiles } from './loaderfiles.js';
 import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
+import { DragAndDrop } from './draganddrop.js';
 
 const activeModel = false;
 const game3d = new Game3d();
@@ -47,6 +48,9 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'llamadorClick', src: 'dist/img/llamadorClick.gif' },
+    { id: 'llamadorDrag', src: 'dist/img/llamadorDrag.gif' },
+    { id: 'llamadorDrop', src: 'dist/img/llamadorDrop.gif' },
     { id: 'elearning_1a', src: 'dist/img/elearning_1a.png' },
     { id: 'elearning_1b', src: 'dist/img/elearning_1b.png' },
     { id: 'elearning_2a', src: 'dist/img/elearning_2a.png' },
@@ -109,6 +113,8 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkInstruction();
+        checkDragAndDrop();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -408,6 +414,31 @@ function checkParallax() {
         new Parallax(parallaxScene);
     }
 }
+
+function checkDragAndDrop() {
+    /*
+    let dragAndDrop = document.querySelector('.drag-and-drop');
+    if(dragAndDrop != null){
+        let direction  = dragAndDrop.getAttribute('data-direction');
+        new DragAndDrop({
+            dragElements:'.drag',
+            dropElements: '.drop',
+            disabledDrag: true,
+            requiredPair: true, 
+            direction: direction, // all, vertical, horizontal
+        }); 
+    }
+    */
+}
+
+function checkInstruction () {
+    let instruction = document.querySelector('.instruction');
+    
+    if(instruction !== null){
+        setTimeout(() => { instruction.classList.add('viewed'); }, 3000);   
+    }
+}
+
 
 function checkTranslation() {
     let hash = window.location.hash;

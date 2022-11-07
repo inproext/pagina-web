@@ -2,6 +2,7 @@ import { LoaderFiles } from './loaderfiles.js';
 import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
+import { DragAndDrop } from './draganddrop.js';
 
 const activeModel = false;
 const game3d = new Game3d();
@@ -45,7 +46,9 @@ preload.addImages([
     { id: 'alojamiento_2b', src: 'dist/img/alojamiento_2b.png' },
     { id: 'alojamiento_3a', src: 'dist/img/alojamiento_3a.png' },
     { id: 'alojamiento_3b', src: 'dist/img/alojamiento_3b.png' },
-    { id: 'alojamiento_3c', src: 'dist/img/alojamiento_3c.png' }
+    { id: 'alojamiento_3c', src: 'dist/img/alojamiento_3c.png' },
+    { id: 'cloud', src: 'dist/img/cloud.png' },
+    { id: 'diskette', src: 'dist/img/diskette.png' }
 ]);
 
 // preload.addModels([
@@ -99,6 +102,7 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkDragAndDrop();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -389,6 +393,24 @@ function checkLiquidButton() {
     for (let buttonIndex = 0; buttonIndex < buttons.length; buttonIndex++) {
         let button = buttons[buttonIndex];
         button.liquidButton = new LiquidButton(button);
+    }
+}
+
+function checkDragAndDrop() {
+    let dragAndDrop = document.querySelector('.drag-and-drop');
+    if(dragAndDrop != null){
+        let direction  = dragAndDrop.getAttribute('data-direction');
+        let dropEvent  = dragAndDrop.getAttribute('data-event');
+        new DragAndDrop({
+            dragElements:'.drag',
+            dropElements: '.drop',
+            disabledDrag: true,
+            requiredPair: true, 
+            direction: direction, // all, vertical, horizontal
+        });
+        window.addEventListener('dropEvent', function() {
+           document.querySelector('body').classList.add(dropEvent);
+        })
     }
 }
 

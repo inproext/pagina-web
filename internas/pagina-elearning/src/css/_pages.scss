@@ -37,7 +37,7 @@
     left: 2%;
     top: 13%;
     text-align: right;
-    @include tablet { left: 4%; top: 19%; }
+    @include tablet { left: 0%; top: 19%; }
     @include mobile { top: 12%; width: 58%; left: 32%; }
 }
 
@@ -58,6 +58,12 @@
     width: 270px;
     height: 70px;
     cursor: pointer;
+    .drag-and-drop{
+        position: absolute;
+        background: rgba(0, 0, 0, 0);
+        width: 270px;
+        height: 70px;
+    }
     @include mobile { width: 120px; height: 31px; bottom: 25%; right: 36%; }
     p{
         position: absolute;
@@ -75,7 +81,7 @@
         height: 100%;
         bottom: 0%;
         left: 0%;
-        transition: 0.6s all;
+        //transition: 0.6s all;
     }
     
     .image-elearning3c{
@@ -84,23 +90,27 @@
         height: 100%;
         bottom: 0%;
         right: 0%;
-        transition: 0.6s all;
+        //transition: 0.6s all;
     }
 
     .txt3b{
         position: absolute;
         top: 27%;
-        left: -48%;
+        left: -45%;
         display: none;
-        @include mobile { left: -60%; }
+        @include laptop{ left: -37%; }
+        @include tablet{ left: -28%; }
+        @include mobile { left: -74%; }
     }
     
     .txt3c{
         position: absolute;
         top: 27%;
-        right: -48%;
+        right: -59%;
         display: none;
-        @include mobile { right: -74%; }
+        @include laptop { right: -47%; }
+        @include tablet { right: -38%; }
+        @include mobile { right: -93%; }
     }
 
     &.active {
@@ -122,6 +132,22 @@
     @include tablet { left: 12%; top: 27%;}
     @include mobile { right: 10%; top: 25%; }
 }
+
+.instruction{
+    img { 
+        position: absolute;
+        bottom: 23%;
+        right: 17%;
+        @include mobile{ bottom: 18%; right: 38%; width: 100px; }
+    }
+    span.txt-x5{
+        position: absolute;
+        bottom: 17%;
+        right: 16%;
+        @include mobile{ bottom: 14%; right: 33%; }
+    }
+}
+
 //page4
 
 .image-elearning4a{
@@ -134,17 +160,17 @@
 
 .txt4a{
     position: absolute;
-    top: 7%;
+    top: 20%;
     left: 55%;
     text-align: center;
-    @include mobile { width: 100%; left: 0; }
+    @include mobile { width: 100%; left: 0; top: 12%; }
 }
 
 .txt4b{
     position: absolute;
     top: 65%;
     left: 55%;
-    @include mobile{ width: 80%; top: 80%; left: 33%;}
+    @include mobile{ width: 80%; top: 80%; left: 10%; text-align: center; }
 }
 
 //page5
@@ -154,22 +180,23 @@
     width: 40%;
     height: auto;
     left: 30%;
-    @include mobile{ width: 100%; left: 0%; }
+    @include mobile{ width: 90%; left: 5%; }
 }
 
 .txt5a{
     position: absolute;
-    top: 7%;
-    left: 9%;
+    top: 15%;
+    left: 5%;
     text-align: center;
-    @include mobile { width: 100%; left: 0; }
+    @include tablet{ top: 10%; }
+    @include mobile { width: 100%; top: 10%; left: 0; }
 }
 
 .txt5b{
     position: absolute;
     top: 73%;
-    left: 65%;
-    @include mobile{ width: 80%; top: 80%; left: 33%;}
+    left: 70%;
+    @include mobile{ width: 80%; top: 75%; left: 10%; text-align: center; }
 }
 
 //page6
@@ -177,35 +204,46 @@
 .image-elearning6a{
     position: absolute;
     width: 104%;
-    height: 100%;
+    height: 104%;
     left: -2%;
     top: 0;
     object-fit: cover;
+    @include mobile { width: 104%; height: 100%; top: -6%; }
 }
 
 .txt6a{
     position: absolute;
-    top: 10%;
-    right: 8%;
+    top: 16%;
+    right: 11%;
     text-align: right;
+    @include tablet { top: 11%; }
+    @include mobile { top: 8%; }
 }
 
 .txt6b{
     position: absolute;
-    bottom: 10%;
-    left: 8%;
+    bottom: 16%;
+    left: 2%;
     text-align: right;
+    @include tablet { bottom: 11%; }
+    @include mobile { bottom: 9%; left: 3%; }
 }
 
 //page7
 .txt7a{
     position: absolute;
     top: 10%;
-    left: 10%;
+    left: 7%;
     text-align: right;
+    .txt-x3{ 
+        font-weight: bold; font-size: 4rem;
+        @include laptop { font-size: 3rem; }
+        @include tablet { font-size: 2.5rem; }
+        @include mobile { font-size: 2rem; }
+    }
     @include laptop { top: 14%; left: 4%; }
     @include tablet { top: 8%; left: 7%;}
-    @include mobile { left: auto; text-align: center; top: 4%; }
+    @include mobile { left: auto; text-align: center; top: 5%;  }
 }
 
 .txt7b {
@@ -215,35 +253,67 @@
     text-align: left;
     right: 5%;
     color: #000000;
-    @include laptop { width: 75%; }
-    @include tablet { width: 60%; }
-    @include mobile { top: 55%; width: 90%; }
+    @include laptop { width: 90%; right: 5%; text-align: center; }
+    @include tablet { width: 90%; right: 5%; text-align: center; }
+    @include mobile { top: 60%;  width: 90%; right: 5%; text-align: center;}
 }
 
 .wrapper-video {
     video { 
         clip-path: circle(200px at 50% 45%); 
-        @include tablet { 
-            clip-path: circle(120px at 50% 45%);
-        }
-        @include mobile { 
-            clip-path: circle(75px at 50% 42%);
-        }
+        @include laptop {  clip-path: circle(170px at 50% 45%); }
+        @include tablet {  clip-path: circle(120px at 50% 45%); }
+        @include mobile {  clip-path: circle(0px at 50% 45%); object-fit: contain; }
     }
 
     &.active {
         video { 
             @include mobile { 
-                clip-path: circle(120vw at 50% 45%) !important; 
+                clip-path: circle(140vw at 50% 45%) !important; 
             }
         }
     }
-    span { 
+    .title-reel { 
         left: 57%;
         top: 44%;
         text-shadow: 0px 0px 5px black;
-        @include mobile { left: 50%; top: 50%; } 
+        font-size: 3rem;
+        @include laptop { font-size: 2rem; } 
+        @include tablet { font-size: 1.8rem; left: 55%; } 
+        @include mobile { font-size: 1.5rem; left: 0%; top: 40%; width: 100%; text-align: center; } 
     }
 }
 
-.carrousel .slide .arrows{ bottom: 47%; }
+.carrousel{
+    .slide {
+         .arrows{ 
+            width: 50%;
+            left: 25%;
+            bottom: 58%; 
+            height: 0;
+            @include laptop { bottom: 62%; }
+            @include tablet { bottom: 61%; }
+            @include mobile { bottom: 60%; width: 70%; left: 15%;  }
+            .btn-arrow { 
+                height: 100px;
+                @include laptop { height: 70px; }
+                @include tablet{ height: 60px; }
+                @include mobile{ height: 40px; }
+            }
+        }
+        .bullets {
+            position: absolute;
+            bottom: 10%;
+            display: flex;
+            .dot {
+                margin: 0 8px;
+                width: 15px;
+                height: 15px;
+                border: 2px solid #fff;
+                border-radius: 100%;
+                background-color: #fff;
+                &.active { background-color: transparent; }
+            }
+        }
+    }
+}

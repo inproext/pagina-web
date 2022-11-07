@@ -19,6 +19,7 @@ class LiquidButton {
         this.text = options.text || "Button";
         this.fontFamily = options.fontFamily || "serif";
         this.fontWeight = options.fontWeight || "400";
+        this.fontSize = options.fontSize || "3rem";
         this.svg = svg;
         this.layers = [
             {
@@ -60,6 +61,7 @@ class LiquidButton {
         this.svgText.setAttribute("font-size", ~~(this.height / 3));
         this.svgText.style.fontFamily = this.fontFamily;
         this.svgText.style.fontWeight = this.fontWeight;
+        this.svgText.style.fontSize = this.fontSize;
         this.svgText.setAttribute("text-anchor", "middle");
         this.svgText.setAttribute("pointer-events", "none");
         this.svg.appendChild(this.svgText);

@@ -1,0 +1,330 @@
+@charset "utf-8";
+
+/*ANIMCACIONES*/
+
+@-moz-keyframes click {
+  	from { margin-bottom: -1%;}
+  	50% { margin-bottom: 1%; transform: scale(0.98); transform: scaleY(0.97); }
+  	to { margin-bottom: -1%;}  
+}
+@-webkit-keyframes click {
+ 	from { margin-bottom: -1%;}
+  	50% { margin-bottom: 1%; transform: scale(0.98); transform: scaleY(0.97); }
+  	to { margin-bottom: -1%;}   
+}
+@keyframes click {
+  	from { margin-bottom: -1%;}
+  	50% { margin-bottom: 1%; transform: scale(0.98); transform: scaleY(0.97); }
+  	to { margin-bottom: -1%;}  
+}
+
+/*----------------*/
+
+@-moz-keyframes drag {
+  	from { margin-bottom: -1%; margin-left: -5%;}
+  	50% { margin-bottom: 1%; margin-left: 5%; transform: rotate(-10deg);}
+  	to { margin-bottom: -1%; margin-left: -5%;}  
+}
+@-webkit-keyframes drag {
+ 	from { margin-bottom: -1%; margin-left: -5%;}
+  	50% { margin-bottom: 1%; margin-left: 5%; transform: rotate(-10deg);}
+  	to { margin-bottom: -1%; margin-left: -5%;}  
+}
+@keyframes drag {
+  	from { margin-bottom: -1%; margin-left: -5%;}
+  	50% { margin-bottom: 1%; margin-left: 5%; transform: rotate(-10deg);}
+  	to { margin-bottom: -1%; margin-left: -5%;}  
+}
+
+/*----------------*/
+
+@-moz-keyframes drop {
+  	from { margin-bottom: -5%;}
+  	40% { margin-bottom: 1%; transform: rotate(-30deg) scale(0.9);}
+  	to { margin-bottom: -5%;}  
+}
+@-webkit-keyframes drop {
+ 	from { margin-bottom: -5%;}
+  	40% { margin-bottom: 1%; transform: rotate(-30deg) scale(0.9);}
+  	to { margin-bottom: -5%;}  
+}
+@keyframes drop {
+  	from { margin-bottom: -5%;}
+  	40% { margin-bottom: 1%; transform: rotate(-30deg) scale(0.9);}
+  	to { margin-bottom: -5%;}  
+}
+
+/*----------------*/
+
+@-moz-keyframes gira {
+  	from { transform: rotate(0); }
+  	to { transform: rotate(360deg); }  
+}
+@-webkit-keyframes gira {
+ 	from { transform: rotate(0); }
+  	to { transform: rotate(360deg); }    
+}
+@keyframes gira {
+  	from { transform: rotate(0); }
+  	to { transform: rotate(360deg); }    
+}
+
+/*----------------*/
+
+@-moz-keyframes comb1 {
+  	from {  margin-top: 50%;}
+	50% { margin-top: 0%;}
+  	to {  margin-top: 50%;}  
+}
+@-webkit-keyframes comb1 {
+ 	from {  margin-top: 50%;}
+	50% { margin-top: 0%;}
+  	to {  margin-top: 50%;} 
+}
+@keyframes comb1 {
+  	from {  margin-top: 50%;}
+	50% { margin-top: 0%;}
+  	to {  margin-top: 50%;}   
+}
+
+/*----------------*/
+
+@-moz-keyframes comb2 {
+  	from {  margin-top: 0%;}
+	50% { margin-top: 50%;}
+  	to {  margin-top: 0%;}  
+}
+@-webkit-keyframes comb2 {
+ 	from {  margin-top: 0%;}
+	50% { margin-top: 50%;}
+  	to {  margin-top: 0%;} 
+}
+@keyframes comb2 {
+  	from {  margin-top: 0%;}
+	50% { margin-top: 50%;}
+  	to {  margin-top: 0%;}   
+}
+
+/*----------------*/
+
+@-moz-keyframes entrada {
+  0% {transform: scale(0.1);}
+  80% {transform: scale(1.5);}
+  100% {transform: scale(1);}
+}
+@-webkit-keyframes entrada {
+  0% {transform: scale(0.1);}
+  80% {transform: scale(1.5);}
+  100% {transform: scale(1);}
+}
+@keyframes entrada{
+  0% {transform: scale(0.1);}
+  80% {transform: scale(1.5);}
+  100% {transform: scale(1);}
+}
+
+/*-----------------------*/
+
+@-moz-keyframes desvanece {
+  0% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+@-webkit-keyframes desvanece {
+  0% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+@keyframes desvanece{
+  0% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+
+/*-----------------------*/
+
+/*ESTRUCTURA*/
+
+body {
+	margin:0;
+	border:0;
+	font-size:1em;
+	color: #666;
+	background-color: #04A2BC;
+	width: 100%;
+	height: 100%;
+}
+
+section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.cursor {
+	width: 200px;
+	height: 200px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/llamadorClick.gif);
+	background-repeat: no-repeat;
+	animation-duration: 1s;
+  	animation-name: click;
+  	animation-iteration-count: infinite;
+}
+
+.cursor2 {
+	width: 200px;
+	height: 200px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/llamadorDrag.gif);
+	background-repeat: no-repeat;
+	animation-duration: 3s;
+  	animation-name: drag;
+  	animation-iteration-count: infinite;
+}
+
+.cursor3 {
+	width: 200px;
+	height: 200px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/llamadorDrop.gif);
+	background-repeat: no-repeat;
+	animation-duration: 2s;
+  	animation-name: drop;
+  	animation-iteration-count: infinite;
+}
+
+/*--- KIDS ---*/
+.kids_1 {
+	width: 400px;
+	height: 200px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/GIF_kids_1.gif);
+	background-repeat: no-repeat;
+}
+
+.kids_2 {
+	width: 550px;
+	height: 65px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/GIF_kids_2.gif);
+	background-repeat: no-repeat;
+}
+
+.kids_3 {
+	width: 250px;
+	height: 440px;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/GIF_kids_3.gif);
+	background-repeat: no-repeat;
+}
+
+/*--- CARRITO ---*/
+.kids_4 {
+	width: 200px;
+	height: 200px;
+	//border: 1px solid #fff;
+}
+
+.motorKids {
+	width: 60%;
+	height: 40%;
+	//border: 1px solid #fff;
+	position: relative;
+	left: 20%;
+	margin-bottom: 3%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.camara {
+	width: 27%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.embolo {
+	width: 100%;
+	height: 50%;
+	background-color: #fff;
+}
+
+.piston {
+	width: 100%;
+	height: 50%;
+	border-radius: 40% 40% 0 0;
+	background-color: #fff;
+	animation-duration: 1s;
+  	animation-name: comb1;
+  	animation-iteration-count: infinite;
+}
+
+.piston2 {
+	width: 100%;
+	height: 50%;
+	border-radius: 40% 40% 0 0;
+	background-color: #fff;
+	animation-duration: 1s;
+  	animation-name: comb2;
+  	animation-iteration-count: infinite;
+}
+
+.carro_kids_4 {
+	width: 100%;
+	height: 35%;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/carroKids.png);
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.llantas {
+	width: 100%;
+	height: 34%;
+	//border: 1px solid #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -8%;
+}
+
+.llanta1_kids_4 {
+	width: 30%;
+	height: 100%;
+	margin-right: 15%;
+}
+
+.llanta2_kids_4 {
+	width: 30%;
+	height: 100%;
+}
+
+.llanta_kids_IN {
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	background-position: center;
+	background-image: url(../img/llantaKids.png);
+	background-repeat: no-repeat;
+	animation-duration: 1s;
+  	animation-name: gira;
+  	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}

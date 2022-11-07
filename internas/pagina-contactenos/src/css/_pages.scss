@@ -11,8 +11,47 @@
     @include mobile { width: 100%;  height: auto; bottom: 25%; }
 }
 
-.txt1a{
-    position: absolute;
-    top: 10%;
-    text-align: right;
+.info{
+    position: relative;
+    background-color: rgba(15, 10, 32, 0.42);
+    backdrop-filter: blur(7px);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+    @include mobile { width: 80%; }
+    &::after{
+        content: "";
+        position: absolute;
+        top: -2%;
+        left: -3%;
+        width: 106%;
+        height: 104%;
+        border: 1px solid #460505;
+        box-sizing: border-box;
+        z-index: -1;
+    }
 }
+
+.info > div {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.title-contact {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.info-contact{
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    a{ 
+        color: #fff;
+        font-weight: 300;
+        text-decoration: none;
+    }
+}
+
+.txt1e{ text-align: center; }

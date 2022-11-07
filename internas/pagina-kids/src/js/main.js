@@ -2,6 +2,7 @@ import { LoaderFiles } from './loaderfiles.js';
 import { Game3d } from "./game.js";
 import { LiquidButton } from './liquidbutton.js';
 import { utils } from './utils';
+import { DragAndDrop } from './draganddrop.js';
 
 const activeModel = false;
 const game3d = new Game3d();
@@ -43,17 +44,25 @@ preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
     { id: 'arrow-left', src: 'dist/img/arrow-left.png' },
     { id: 'arrow-right', src: 'dist/img/arrow-right.png' },
+    { id: 'llamadorClick', src: 'dist/img/llamadorClick.gif' },
+    { id: 'llamadorDrag', src: 'dist/img/llamadorDrag.gif' },
+    { id: 'llamadorDrop', src: 'dist/img/llamadorDrop.gif' },
     { id: 'bg-intro', src: 'dist/img/bg-intro.png' },
     { id: 'kids_1a', src: 'dist/img/kids_1a.png' },
     { id: 'kids_1b', src: 'dist/img/kids_1b.png' },
     { id: 'kids_2a', src: 'dist/img/kids_2a.png' },
     { id: 'kids_3a', src: 'dist/img/kids_3a.png' },
     { id: 'kids_4a', src: 'dist/img/kids_4a.png' },
-    { id: 'kids_i4b', src: 'dist/img/kids_i4b.png' },
-    { id: 'kids_i4c', src: 'dist/img/kids_i4c.png' },
-    { id: 'kids_i4d', src: 'dist/img/kids_i4d.png' },
+    { id: 'kids_i4b', src: 'dist/img/kids_i4b.gif' },
+    { id: 'kids_i4c', src: 'dist/img/kids_i4c.gif' },
+    { id: 'kids_i4d', src: 'dist/img/kids_i4d.gif' },
     { id: 'kids_5a', src: 'dist/img/kids_5a.png' },
-    { id: 'kids_5b', src: 'dist/img/kids_5b.png' }
+    { id: 'kids_5b', src: 'dist/img/kids_5b.png' },
+    { id: 'robot', src: 'dist/img/robot.png' },
+    { id: 'robot-cog', src: 'dist/img/robot-cog.png' },
+    { id: 'carroKids', src: 'dist/img/carroKids.png' },
+    { id: 'llantaKids', src: 'dist/img/llantaKids.png' },
+
 ]);
 
 // preload.addModels([
@@ -107,6 +116,8 @@ function fn_load(){
         checkScrollDirection();
         checkLiquidButton();
         checkParallax();
+        checkInstruction();
+        checkDragAndDrop();
         changeBulletPage(currentPosition);
         document.body.setAttribute('data-page', currentPosition);
         scrollBar.style.width = scrollProgress + '%';
@@ -405,6 +416,32 @@ function checkParallax() {
     let parallaxScene = document.querySelector('.parallax-scene');
     if(parallaxScene !== null) {
         new Parallax(parallaxScene);
+    }
+}
+
+function checkDragAndDrop() {
+    let dragAndDrop = document.querySelector('.drag-and-drop');
+    if(dragAndDrop != null){
+        let direction  = dragAndDrop.getAttribute('data-direction');
+        let dropEvent  = dragAndDrop.getAttribute('data-event');
+        new DragAndDrop({
+            dragElements:'.drag',
+            dropElements: '.drop',
+            disabledDrag: true,
+            requiredPair: true, 
+            direction: direction, // all, vertical, horizontal
+        });
+        window.addEventListener('dropEvent', function() {
+           document.querySelector('body').classList.add(dropEvent);
+        })
+    }
+}
+
+function checkInstruction () {
+    let instruction = document.querySelector('.instruction');
+    
+    if(instruction !== null){
+        setTimeout(() => { instruction.classList.add('viewed'); }, 3000);   
     }
 }
 
