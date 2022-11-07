@@ -134,8 +134,27 @@ body{
     ul.menu-list{
         list-style: none;
         display: flex;
-        @include mobile { position: fixed; top: -100%; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.909); flex-direction: column; justify-content: center; align-items: center; transition: 0.2s; }
+        @include mobile { position: fixed; top: -100%; left: 0; width: 100%; height: 100%; background-color: rgba(4, 0, 26, 0.91); flex-direction: column; justify-content: center; align-items: center; transition: 0.2s; }
         li{
+            &.title-mobile{
+                color: #fff;
+                font-weight: 100;
+                font-size: 2rem;
+                top: 130px;
+                position: absolute;
+                text-shadow: 4px 4px 4px #fff;
+                display: none;
+                @include mobile { display: block; }
+            }
+
+            &.btn-close-menu{
+                color: #b92b2b;
+                position: absolute;
+                top: 30px;
+                font-size: 2.5rem;
+                display: none;
+                @include mobile { display: block; }
+            }
             margin: 0 1rem;
             padding: 0;
             @include laptop { margin: 0 0.5rem; }

@@ -13,6 +13,7 @@ let scrollBar = document.querySelector('.scroll-bar .bar');
 let layerContent = document.getElementById('LayerContent');
 let layerPreload = document.getElementById('LayerPreload');
 let btnMenuMovile = document.querySelector('.btn-menu-movile');
+let btnCloseMenu = document.querySelector('.btn-close-menu');
 let menuList = document.querySelector('.menu-list');
 let menuItem = document.querySelectorAll('.menu-item');
 
@@ -202,7 +203,10 @@ function setEvents() {
 
     });
 
-
+    btnCloseMenu.addEventListener('click', function(){
+        menuList.classList.remove('active');
+    });
+    
     btnMenuMovile.addEventListener('click', function() {
         menuList.classList.add('active');
     });
