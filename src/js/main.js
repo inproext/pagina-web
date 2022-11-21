@@ -25,14 +25,14 @@ let slideDirection = '';
 let scrollDirection = '';
 
 let cameraPoints = [
-    { id: 1, geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF', speed: 2000 },
-    { id: 2, geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },  
-    { id: 3, geometry: 'esfera', bgColor: '#95D4CC',  speed: 1000 },
-    { id: 4, geometry: 'octaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 5, geometry: 'icosaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 6, geometry: 'dodecaedro', bgColor: '#95D4CC', speed: 1000 },
-    { id: 7, geometry: 'cubo', bgColor: '#95D4CC', speed: 1000 },
-    { id: 8, geometry: 'dodecaedro_centro2', bgColor: '#FFA4FF',  speed: 1000 },
+    { id: 1, geometry: 'dodecaedro_centro2', bgColor: '#C9E7DF', speed: 2000 },
+    { id: 2, geometry: 'cubo', bgColor: '#C9E7DF', speed: 1000 },  
+    { id: 3, geometry: 'esfera', bgColor: '#C9E7DF',  speed: 1000 },
+    { id: 4, geometry: 'octaedro', bgColor: '#C9E7DF', speed: 1000 },
+    { id: 5, geometry: 'icosaedro', bgColor: '#C9E7DF', speed: 1000 },
+    { id: 6, geometry: 'dodecaedro', bgColor: '#C9E7DF', speed: 1000 },
+    { id: 7, geometry: 'cubo', bgColor: '#C9E7DF', speed: 1000 },
+    { id: 8, geometry: 'dodecaedro_centro2', bgColor: '#C9E7DF',  speed: 1000 },
 ];
 /*
 let cameraPoints = [
@@ -81,6 +81,8 @@ preload.addImages([
     { id: 'wave1', src: 'dist/img/wave1.png' },
     { id: 'wave2', src: 'dist/img/wave2.png' },
     { id: 'wave3', src: 'dist/img/wave3.png' },
+    { id: 'sb', src: 'dist/img/sb.png' },
+    { id: 'bw', src: 'dist/img/bw.png' },
 ]);
 
 preload.addModels([
@@ -93,7 +95,7 @@ preload.addSounds([
 
 
 preload.load(function (_progress) {
-	layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';
+	// layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';
 }).then(function () {
     init();
     anime({

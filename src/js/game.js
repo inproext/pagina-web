@@ -9,7 +9,7 @@ class Game3d {
         this.modelAnimation;
         this.clock = new THREE.Clock();
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color( 0xFFA4FF );
+        this.scene.background = new THREE.Color( 0x95D4CC);
         
         this.eventEndMovement = new Event('endmovement');
         this.renderer = new THREE.WebGLRenderer({ 

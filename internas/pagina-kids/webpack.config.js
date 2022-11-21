@@ -2,7 +2,7 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const config = {
-    mode: 'development',
+    mode: 'production',
     watch: true,
     watchOptions: {
         aggregateTimeout: 600,

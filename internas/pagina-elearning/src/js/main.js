@@ -73,7 +73,7 @@ preload.addSounds([
 
 
 preload.load(function (_progress) {
-	layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';
+	// layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';
 }).then(function () {
     init();
     anime({

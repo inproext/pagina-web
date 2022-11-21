@@ -34,7 +34,12 @@ preload.addContents([
 
 preload.addImages([
     { id: 'logo', src: 'dist/img/logo.png' },
-    { id: 'contactenos_1a', src: 'dist/img/contactenos_1a.png' }
+    { id: 'contactenos_1a', src: 'dist/img/contactenos_1a.png' },
+    { id: 'icon-canada', src: 'dist/img/icon-canada.jpg' },
+    { id: 'icon-colombia', src: 'dist/img/icon-colombia.jpg' },
+    { id: 'icon-eeuu', src: 'dist/img/icon-eeuu.png' },
+    { id: 'icon-mexico', src: 'dist/img/icon-mexico.jpg' },
+    { id: 'icon-panama', src: 'dist/img/icon-panama.png' }
 ]);
 
 // preload.addModels([
@@ -47,7 +52,7 @@ preload.addSounds([
 
 
 preload.load(function (_progress) {
-	layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';
+	/*layerPreload.innerHTML = '<h1>'+_progress + '%</h1>';*/
 }).then(function () {
     init();
     anime({

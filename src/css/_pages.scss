@@ -263,10 +263,13 @@
 
 .image-home6b{
     position: absolute;
-    width: auto;
+    width: 40vh;
     height: 40vh;
     top: 15%;
-    @include mobile { top: 16%; height: 30vh; }
+    object-fit: contain;
+    border-radius: 100%;
+    background-color: #fff;
+    @include mobile { top: 16%; height: 30vh; width: 30vh; }
 }
 
 .txt6c{
@@ -283,6 +286,7 @@
     position: absolute;
     top: 28%;
     right: 6%;
+    text-shadow: 0 0 10px #646464;
     text-align: left;
     .txt-x4{ 
         line-height: 3.5rem;
@@ -296,6 +300,7 @@
     width: 60%;
     top: 65%;
     text-align: center;
+    color: #000;
     @include laptop { width: 75%; }
     @include tablet { width: 80%; }
     @include mobile { top: 55%; width: 90%; }

@@ -52,7 +52,23 @@
             <img class="scroll-mark" src="dist/img/ico-scroll.png">
         </div>
         
-        <div id="LayerPreload" class="container-preload"></div>
+        <div id="LayerPreload" class="container-preload">
+            <img src="dist/img/logo.png" style="position: absolute; left: 0; right: 0; bottom: 50px; max-width: 320px; margin: auto;"/>
+            <div class="peeek-loading">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
         
         <div id="LayerPageBullets" class="container-page-bullets"></div>
         <div class="scroll-bar"><div class="bar"></div></div>
@@ -61,5 +77,12 @@
         </div>
         <script src="dist/app-bundle.js"></script>
         <script src="custom.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQTN7B3HTQ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KQTN7B3HTQ');
+        </script>
     </body>
 </html>
